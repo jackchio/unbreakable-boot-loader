@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>固件信息编辑器</title>
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --background: #f8f9fa;
+            --text: #2c3e50;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            margin: 0;
+            padding: 2rem;
+            background: var(--background);
+            color: var(--text);
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .header {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--primary);
+        }
+
+        .file-input {
+            margin: 1.5rem 0;
+            position: relative;
+        }
+
+        .file-input input[type="file"] {
+            opacity: 0;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+        }
+
+        .custom-file-input {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            background: var(--primary);
+            color: white;
+            border-radius: 8px;
+            transition: transform 0.1s ease;
+        }
+
+        .custom-file-input:hover {
+            transform: translateY(-1px);
+        }
+
+        #fileName {
+            margin-left: 1rem;
+            color: #666;
+            font-size: 0.9em;
+        }
+
+        .editor {
+            margin: 2rem 0;
+        }
+
+        textarea {
+            width: 100%;
+            height: 150px;
+            padding: 1rem;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            resize: vertical;
+            font-family: monospace;
+            margin: 1rem 0;
+            transition: border-color 0.2s ease;
+        }
+
+        textarea:focus {
+            outline: none;
+            border-color: var(--secondary);
+        }
+
+        .button-group {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        button {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 8px;
+            background: var(--secondary);
+            color: white;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        button:hover {
+            background: #2980b9;
+            transform: translateY(-1px);
+        }
+
+        .status {
+            margin-top: 1rem;
+            padding: 1rem;
+            background: #f1f5f9;
+            border-radius: 8px;
+            font-size: 0.9em;
+        }
+
+        @keyframes slideIn {
+            from { transform: translateX(100%); }
+            to { transform: translateX(0); }
+        }
+        @keyframes fadeOut {
+            from { opacity: 1; }
+            to { opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>单片机固件编辑器</h1>
+            <p>用于编辑固件文件中的版本和识别信息</p>
+        </div>
+
+        <div class="file-input">
+            <input type="file" id="fileInput" accept=".bin">
+            <label class="custom-file-input">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/>
+                    <path d="M13 2v7h7"/>
+                </svg>
+                选择固件文件
+            </label>
+            <span id="fileName"></span>
+        </div>
+
+        <div class="editor">
+            <label>信息内容：</label>
+            <textarea id="content" placeholder="输入固件标识信息（支持多行）"></textarea>
+            
+            <div class="button-group">
+                <button onclick="saveFile()">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/>
+                        <path d="M17 21v-8H7v8M7 3v5h8"/>
+                    </svg>
+                    保存修改
+                </button>
+            </div>
+
+            <div class="status" id="status">已使用：0 字节 | 剩余空间：160 字节</div>
+        </div>
+    </div>
+
+    <script>
+        const CHUNK_ADDRESSES = Array.from({length: 32}, (_, i) => 0x0006 + i * 0x08);
+        const CHUNK_SIZE = 5;
+        const MAX_BYTES = CHUNK_ADDRESSES.length * CHUNK_SIZE;
+
+        let fileBuffer = null;
+        let originalFileName = '';
+
+        // 输入事件监听
+        document.getElementById('content').addEventListener('input', updateStatus);
+
+        // 文件选择处理
+        document.getElementById('fileInput').addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (!file) return;
+
+            originalFileName = file.name;
+            document.getElementById('fileName').textContent = `已选文件：${file.name}`;
+            
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                fileBuffer = new Uint8Array(e.target.result);
+                loadContent();
+                updateStatus();
+            };
+            reader.readAsArrayBuffer(file);
+        });
+
+        // 加载内容（过滤0xFF）
+        function loadContent() {
+            let dataBytes = [];
+            CHUNK_ADDRESSES.forEach(addr => {
+                const chunk = fileBuffer.subarray(addr, addr + CHUNK_SIZE);
+                for (let i = 0; i < chunk.length; i++) {
+                    const byte = chunk[i];
+                    if (byte === 0x00) break; // 遇到终止符停止
+                    if (byte !== 0xFF) dataBytes.push(byte); // 过滤未写入区域
+                }
+            });
+            
+            const decoder = new TextDecoder();
+            document.getElementById('content').value = decoder.decode(new Uint8Array(dataBytes));
+        }
+
+        // 实时更新状态
+        function updateStatus() {
+            const content = document.getElementById('content').value;
+            const encoder = new TextEncoder();
+            const encodedBytes = encoder.encode(content);
+            
+            const usedBytes = encodedBytes.length;
+            const remainingBytes = MAX_BYTES - usedBytes;
+            
+            const statusElement = document.getElementById('status');
+            statusElement.innerHTML = `已使用：${usedBytes} 字节 | 剩余空间：${Math.max(remainingBytes, 0)} 字节`;
+            
+            if (remainingBytes < 0) {
+                statusElement.innerHTML += '<span style="color: #e74c3c;">（已超出）</span>';
+            }
+        }
+
+        // 保存文件（使用0xFF填充空白）
+        async function saveFile() {
+            if (!fileBuffer) {
+                showToast('请先选择固件文件', true);
+                return;
+            }
+
+            const content = document.getElementById('content').value;
+            const encoder = new TextEncoder();
+            const encodedBytes = encoder.encode(content);
+
+            if (encodedBytes.length > MAX_BYTES) {
+                showToast(`超出存储空间（最大支持 ${MAX_BYTES} 字节）`, true);
+                return;
+            }
+
+            // 创建填充缓冲区并初始化为0xFF
+            const paddedBytes = new Uint8Array(MAX_BYTES).fill(0xFF);
+            paddedBytes.set(encodedBytes);
+
+            // 写入存储块
+            let writeIndex = 0;
+            CHUNK_ADDRESSES.forEach(addr => {
+                const chunkData = paddedBytes.subarray(writeIndex, writeIndex + CHUNK_SIZE);
+                fileBuffer.set(chunkData, addr);
+                writeIndex += CHUNK_SIZE;
+            });
+
+            // 保存文件
+            try {
+                const handle = await window.showSaveFilePicker({
+                    suggestedName: originalFileName,
+                    types: [{ 
+                        description: '固件文件', 
+                        accept: {'application/octet-stream': ['.bin']} 
+                    }]
+                });
+
+                const writable = await handle.createWritable();
+                await writable.write(fileBuffer);
+                await writable.close();
+                
+                showToast('文件保存成功！');
+            } catch (err) {
+                if (err.name === 'AbortError') return;
+                
+                // 兼容旧版浏览器
+                if (err.name === 'TypeError') {
+                    const blob = new Blob([fileBuffer], {type: 'application/octet-stream'});
+                    const url = URL.createObjectURL(blob);
+                    const a = document.createElement('a');
+                    a.href = url;
+                    a.download = originalFileName;
+                    a.click();
+                    URL.revokeObjectURL(url);
+                } else {
+                    showToast(`保存失败：${err.message}`, true);
+                }
+            }
+        }
+
+        // 显示提示信息
+        function showToast(message, isError = false) {
+            const toast = document.createElement('div');
+            toast.textContent = message;
+            toast.style.cssText = `
+                position: fixed;
+                bottom: 20px;
+                right: 20px;
+                padding: 12px 24px;
+                background: ${isError ? '#e74c3c' : '#2ecc71'};
+                color: white;
+                border-radius: 8px;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                animation: slideIn 0.3s ease;
+            `;
+
+            document.body.appendChild(toast);
+            setTimeout(() => {
+                toast.style.animation = 'fadeOut 0.3s ease';
+                setTimeout(() => toast.remove(), 300);
+            }, 3000);
+        }
+    </script>
+</body>
+</html>

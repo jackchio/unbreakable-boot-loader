@@ -1,0 +1,293 @@
+A51 MACRO ASSEMBLER  NVIC_JMP                                                             03/31/2025 16:43:33 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN .\Objects\NVIC_JMP.obj
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE NVIC_JMP.asm SET(LARGE) DEBUG PRINT(.\Listings\NVIC_JMP.lst) OBJECT(.\O
+                      bjects\NVIC_JMP.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+                       1     ;============= ÓÃ»§ÅäÖÃÇøÓò ==============
+  0800                 2     BOOTLOADER_BASE_ADDR   EQU     0800H    ; ÖÐ¶ÏÌø×ª»ùµØÖ·£¨°´ÐèÐÞ¸Ä£©
+                       3     ;=======================================
+                       4     ;================ ÍêÕûÖÐ¶ÏÌø×ª±í ================
+                       5     ; ÖÐ¶ÏºÅ0 (INT0)
+----                   6     CSEG AT 0003H
+0003 020803            7         LJMP BOOTLOADER_BASE_ADDR + 0003H
+                       8     
+                       9     ; ÖÐ¶ÏºÅ1 (TIMER0)
+----                  10     CSEG AT 000BH
+000B 02080B           11         LJMP BOOTLOADER_BASE_ADDR + 000BH
+                      12     
+                      13     ; ÖÐ¶ÏºÅ2 (INT1)
+----                  14     CSEG AT 0013H
+0013 020813           15         LJMP BOOTLOADER_BASE_ADDR + 0013H
+                      16     
+                      17     ; ÖÐ¶ÏºÅ3 (TIMER1)
+----                  18     CSEG AT 001BH
+001B 02081B           19         LJMP BOOTLOADER_BASE_ADDR + 001BH
+                      20     
+                      21     ; ÖÐ¶ÏºÅ4 (UART)
+----                  22     CSEG AT 0023H
+0023 020823           23         LJMP BOOTLOADER_BASE_ADDR + 0023H
+                      24     
+                      25     ; ÖÐ¶ÏºÅ5 (TIMER2)
+----                  26     CSEG AT 002BH
+002B 02082B           27         LJMP BOOTLOADER_BASE_ADDR + 002BH
+                      28     
+                      29     ; ÖÐ¶ÏºÅ6 (Reserved/Custom)
+----                  30     CSEG AT 0033H
+0033 020833           31         LJMP BOOTLOADER_BASE_ADDR + 0033H
+                      32     
+                      33     ; ÖÐ¶ÏºÅ7 (Reserved/Custom)
+----                  34     CSEG AT 003BH
+003B 02083B           35         LJMP BOOTLOADER_BASE_ADDR + 003BH
+                      36     
+                      37     ; ÖÐ¶ÏºÅ8 (Reserved/Custom)
+----                  38     CSEG AT 0043H
+0043 020843           39         LJMP BOOTLOADER_BASE_ADDR + 0043H
+                      40     
+                      41     ; ÖÐ¶ÏºÅ9 (Reserved/Custom)
+----                  42     CSEG AT 004BH
+004B 02084B           43         LJMP BOOTLOADER_BASE_ADDR + 004BH
+                      44     
+                      45     ; ÖÐ¶ÏºÅ10 (Reserved/Custom)
+----                  46     CSEG AT 0053H
+0053 020853           47         LJMP BOOTLOADER_BASE_ADDR + 0053H
+                      48     
+                      49     ; ÖÐ¶ÏºÅ11 (Reserved/Custom)
+----                  50     CSEG AT 005BH
+005B 02085B           51         LJMP BOOTLOADER_BASE_ADDR + 005BH
+                      52     
+                      53     ; ÖÐ¶ÏºÅ12 (Reserved/Custom)
+----                  54     CSEG AT 0063H
+0063 020863           55         LJMP BOOTLOADER_BASE_ADDR + 0063H
+                      56     
+                      57     ; ÖÐ¶ÏºÅ13 (Reserved/Custom)
+A51 MACRO ASSEMBLER  NVIC_JMP                                                             03/31/2025 16:43:33 PAGE     2
+
+----                  58     CSEG AT 006BH
+006B 02086B           59         LJMP BOOTLOADER_BASE_ADDR + 006BH
+                      60     
+                      61     ; ÖÐ¶ÏºÅ14 (Reserved/Custom)
+----                  62     CSEG AT 0073H
+0073 020873           63         LJMP BOOTLOADER_BASE_ADDR + 0073H
+                      64     
+                      65     ; ÖÐ¶ÏºÅ15 (Reserved/Custom)
+----                  66     CSEG AT 007BH
+007B 02087B           67         LJMP BOOTLOADER_BASE_ADDR + 007BH
+                      68     
+                      69     ; ÖÐ¶ÏºÅ16 (Reserved/Custom)
+----                  70     CSEG AT 0083H
+0083 020883           71         LJMP BOOTLOADER_BASE_ADDR + 0083H
+                      72     
+                      73     ; ÖÐ¶ÏºÅ17 (Reserved/Custom)
+----                  74     CSEG AT 008BH
+008B 02088B           75         LJMP BOOTLOADER_BASE_ADDR + 008BH
+                      76     
+                      77     ; ÖÐ¶ÏºÅ18 (Reserved/Custom)
+----                  78     CSEG AT 0093H
+0093 020893           79         LJMP BOOTLOADER_BASE_ADDR + 0093H
+                      80     
+                      81     ; ÖÐ¶ÏºÅ19 (Reserved/Custom)
+----                  82     CSEG AT 009BH
+009B 02089B           83         LJMP BOOTLOADER_BASE_ADDR + 009BH
+                      84     
+                      85     ; ÖÐ¶ÏºÅ20 (Reserved/Custom)
+----                  86     CSEG AT 00A3H
+00A3 0208A3           87         LJMP BOOTLOADER_BASE_ADDR + 00A3H
+                      88     
+                      89     ; ÖÐ¶ÏºÅ21 (Reserved/Custom)
+----                  90     CSEG AT 00ABH
+00AB 0208AB           91         LJMP BOOTLOADER_BASE_ADDR + 00ABH
+                      92     
+                      93     ; ÖÐ¶ÏºÅ22 (Reserved/Custom)
+----                  94     CSEG AT 00B3H
+00B3 0208B3           95         LJMP BOOTLOADER_BASE_ADDR + 00B3H
+                      96     
+                      97     ; ÖÐ¶ÏºÅ23 (Reserved/Custom)
+----                  98     CSEG AT 00BBH
+00BB 0208BB           99         LJMP BOOTLOADER_BASE_ADDR + 00BBH
+                     100     
+                     101     ; ÖÐ¶ÏºÅ24 (Reserved/Custom)
+----                 102     CSEG AT 00C3H
+00C3 0208C3          103         LJMP BOOTLOADER_BASE_ADDR + 00C3H
+                     104     
+                     105     ; ÖÐ¶ÏºÅ25 (Reserved/Custom)
+----                 106     CSEG AT 00CBH
+00CB 0208CB          107         LJMP BOOTLOADER_BASE_ADDR + 00CBH
+                     108     
+                     109     ; ÖÐ¶ÏºÅ26 (Reserved/Custom)
+----                 110     CSEG AT 00D3H
+00D3 0208D3          111         LJMP BOOTLOADER_BASE_ADDR + 00D3H
+                     112     
+                     113     ; ÖÐ¶ÏºÅ27 (Reserved/Custom)
+----                 114     CSEG AT 00DBH
+00DB 0208DB          115         LJMP BOOTLOADER_BASE_ADDR + 00DBH
+                     116     
+                     117     ; ÖÐ¶ÏºÅ28 (Reserved/Custom)
+----                 118     CSEG AT 00E3H
+00E3 0208E3          119         LJMP BOOTLOADER_BASE_ADDR + 00E3H
+                     120     
+                     121     ; ÖÐ¶ÏºÅ29 (Reserved/Custom)
+----                 122     CSEG AT 00EBH
+00EB 0208EB          123         LJMP BOOTLOADER_BASE_ADDR + 00EBH
+A51 MACRO ASSEMBLER  NVIC_JMP                                                             03/31/2025 16:43:33 PAGE     3
+
+                     124     
+                     125     ; ÖÐ¶ÏºÅ30 (Reserved/Custom)
+----                 126     CSEG AT 00F3H
+00F3 0208F3          127         LJMP BOOTLOADER_BASE_ADDR + 00F3H
+                     128     
+                     129     ; ÖÐ¶ÏºÅ31 (Reserved/Custom)
+----                 130     CSEG AT 00FBH
+00FB 0208FB          131         LJMP BOOTLOADER_BASE_ADDR + 00FBH
+                     132     
+                     133     ; ÖÐ¶ÏºÅ32 (Reserved/Custom)
+----                 134     CSEG AT 0103H
+0103 020903          135         LJMP BOOTLOADER_BASE_ADDR + 0103H
+                     136     
+                     137     ; ÖÐ¶ÏºÅ33 (Reserved/Custom)
+----                 138     CSEG AT 010BH
+010B 02090B          139         LJMP BOOTLOADER_BASE_ADDR + 010BH
+                     140     
+                     141     ; ÖÐ¶ÏºÅ34 (Reserved/Custom)
+----                 142     CSEG AT 0113H
+0113 020913          143         LJMP BOOTLOADER_BASE_ADDR + 0113H
+                     144     
+                     145     ; ÖÐ¶ÏºÅ35 (Reserved/Custom)
+----                 146     CSEG AT 011BH
+011B 02091B          147         LJMP BOOTLOADER_BASE_ADDR + 011BH
+                     148     
+                     149     ; ÖÐ¶ÏºÅ36 (Reserved/Custom)
+----                 150     CSEG AT 0123H
+0123 020923          151         LJMP BOOTLOADER_BASE_ADDR + 0123H
+                     152     
+                     153     ; ÖÐ¶ÏºÅ37 (Reserved/Custom)
+----                 154     CSEG AT 012BH
+012B 02092B          155         LJMP BOOTLOADER_BASE_ADDR + 012BH
+                     156     
+                     157     ; ÖÐ¶ÏºÅ38 (Reserved/Custom)
+----                 158     CSEG AT 0133H
+0133 020933          159         LJMP BOOTLOADER_BASE_ADDR + 0133H
+                     160     
+                     161     ; ÖÐ¶ÏºÅ39 (Reserved/Custom)
+----                 162     CSEG AT 013BH
+013B 02093B          163         LJMP BOOTLOADER_BASE_ADDR + 013BH
+                     164     
+                     165     ; ÖÐ¶ÏºÅ40 (Reserved/Custom)
+----                 166     CSEG AT 0143H
+0143 020943          167         LJMP BOOTLOADER_BASE_ADDR + 0143H
+                     168     
+                     169     ; ÖÐ¶ÏºÅ41 (Reserved/Custom)
+----                 170     CSEG AT 014BH
+014B 02094B          171         LJMP BOOTLOADER_BASE_ADDR + 014BH
+                     172     
+                     173     ; ÖÐ¶ÏºÅ42 (Reserved/Custom)
+----                 174     CSEG AT 0153H
+0153 020953          175         LJMP BOOTLOADER_BASE_ADDR + 0153H
+                     176     
+                     177     ; ÖÐ¶ÏºÅ43 (Reserved/Custom)
+----                 178     CSEG AT 015BH
+015B 02095B          179         LJMP BOOTLOADER_BASE_ADDR + 015BH
+                     180     
+                     181     ; ÖÐ¶ÏºÅ44 (Reserved/Custom)
+----                 182     CSEG AT 0163H
+0163 020963          183         LJMP BOOTLOADER_BASE_ADDR + 0163H
+                     184     
+                     185     ; ÖÐ¶ÏºÅ45 (Reserved/Custom)
+----                 186     CSEG AT 016BH
+016B 02096B          187         LJMP BOOTLOADER_BASE_ADDR + 016BH
+                     188     
+                     189     ; ÖÐ¶ÏºÅ46 (Reserved/Custom)
+A51 MACRO ASSEMBLER  NVIC_JMP                                                             03/31/2025 16:43:33 PAGE     4
+
+----                 190     CSEG AT 0173H
+0173 020973          191         LJMP BOOTLOADER_BASE_ADDR + 0173H
+                     192     
+                     193     ; ÖÐ¶ÏºÅ47 (Reserved/Custom)
+----                 194     CSEG AT 017BH
+017B 02097B          195         LJMP BOOTLOADER_BASE_ADDR + 017BH
+                     196     
+                     197     ; ÖÐ¶ÏºÅ48 (Reserved/Custom)
+----                 198     CSEG AT 0183H
+0183 020983          199         LJMP BOOTLOADER_BASE_ADDR + 0183H
+                     200     
+                     201     ; ÖÐ¶ÏºÅ49 (Reserved/Custom)
+----                 202     CSEG AT 018BH
+018B 02098B          203         LJMP BOOTLOADER_BASE_ADDR + 018BH
+                     204     
+                     205     ; ÖÐ¶ÏºÅ50 (Reserved/Custom)
+----                 206     CSEG AT 0193H
+0193 020993          207         LJMP BOOTLOADER_BASE_ADDR + 0193H
+                     208     
+                     209     ; ÖÐ¶ÏºÅ51 (Reserved/Custom)
+----                 210     CSEG AT 019BH
+019B 02099B          211         LJMP BOOTLOADER_BASE_ADDR + 019BH
+                     212     
+                     213     ; ÖÐ¶ÏºÅ52 (Reserved/Custom)
+----                 214     CSEG AT 01A3H
+01A3 0209A3          215         LJMP BOOTLOADER_BASE_ADDR + 01A3H
+                     216     
+                     217     ; ÖÐ¶ÏºÅ53 (Reserved/Custom)
+----                 218     CSEG AT 01ABH
+01AB 0209AB          219         LJMP BOOTLOADER_BASE_ADDR + 01ABH
+                     220     
+                     221     ; ÖÐ¶ÏºÅ54 (Reserved/Custom)
+----                 222     CSEG AT 01B3H
+01B3 0209B3          223         LJMP BOOTLOADER_BASE_ADDR + 01B3H
+                     224     
+                     225     ; ÖÐ¶ÏºÅ55 (Reserved/Custom)
+----                 226     CSEG AT 01BBH
+01BB 0209BB          227         LJMP BOOTLOADER_BASE_ADDR + 01BBH
+                     228     
+                     229     ; ÖÐ¶ÏºÅ56 (Reserved/Custom)
+----                 230     CSEG AT 01C3H
+01C3 0209C3          231         LJMP BOOTLOADER_BASE_ADDR + 01C3H
+                     232     
+                     233     ; ÖÐ¶ÏºÅ57 (Reserved/Custom)
+----                 234     CSEG AT 01CBH
+01CB 0209CB          235         LJMP BOOTLOADER_BASE_ADDR + 01CBH
+                     236     
+                     237     ; ÖÐ¶ÏºÅ58 (Reserved/Custom)
+----                 238     CSEG AT 01D3H
+01D3 0209D3          239         LJMP BOOTLOADER_BASE_ADDR + 01D3H
+                     240     
+                     241     ; ÖÐ¶ÏºÅ59 (Reserved/Custom)
+----                 242     CSEG AT 01DBH
+01DB 0209DB          243         LJMP BOOTLOADER_BASE_ADDR + 01DBH
+                     244     
+                     245     ; ÖÐ¶ÏºÅ60 (Reserved/Custom)
+----                 246     CSEG AT 01E3H
+01E3 0209E3          247         LJMP BOOTLOADER_BASE_ADDR + 01E3H
+                     248     
+                     249     ; ÖÐ¶ÏºÅ61 (Reserved/Custom)
+----                 250     CSEG AT 01EBH
+01EB 0209EB          251         LJMP BOOTLOADER_BASE_ADDR + 01EBH
+                     252     
+                     253     ; ÖÐ¶ÏºÅ62 (Reserved/Custom)
+----                 254     CSEG AT 01F3H
+01F3 0209F3          255         LJMP BOOTLOADER_BASE_ADDR + 01F3H
+A51 MACRO ASSEMBLER  NVIC_JMP                                                             03/31/2025 16:43:33 PAGE     5
+
+                     256     
+                     257     ; ÖÐ¶ÏºÅ63 (Reserved/Custom)
+----                 258     CSEG AT 01FBH
+01FB 0209FB          259         LJMP BOOTLOADER_BASE_ADDR + 01FBH
+                     260     END
+A51 MACRO ASSEMBLER  NVIC_JMP                                                             03/31/2025 16:43:33 PAGE     6
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E               T Y P E  V A L U E   ATTRIBUTES
+
+BOOTLOADER_BASE_ADDR  N NUMB   0800H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

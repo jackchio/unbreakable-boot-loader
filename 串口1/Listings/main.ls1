@@ -1,0 +1,1704 @@
+A51 MACRO ASSEMBLER  MAIN                                                                 02/17/2025 18:03:46 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN .\Objects\main.OBJ
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE .\Objects\main.src PR(.\Listings\main.ls1) EP DEBUG
+
+LOC  OBJ            LINE     SOURCE
+
+                       1     ; .\Objects\main.SRC generated from: main.c
+                       2     ; COMPILER INVOKED BY:
+                       3     ;        C:\Keil_v5\C51\BIN\C51.EXE main.c LARGE OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEN
+                             D PRINT(.\Listings\main.lst) SRC(.\Objects\main.SRC)
+                       4     
+                       5     $nomod51 
+                       6     
+                       7     NAME    MAIN
+                       8     
+  00DA                 9     CCF2    BIT     0D8H.2
+  0093                10     P0M1    DATA    093H
+  0092                11     P1M0    DATA    092H
+  00DB                12     CCF3    BIT     0D8H.3
+  0096                13     P2M0    DATA    096H
+  0091                14     P1M1    DATA    091H
+  0080                15     P0      DATA    080H
+  00B2                16     P3M0    DATA    0B2H
+  0095                17     P2M1    DATA    095H
+  0090                18     P1      DATA    090H
+  00B4                19     P4M0    DATA    0B4H
+  00B1                20     P3M1    DATA    0B1H
+  00A0                21     P2      DATA    0A0H
+  00CA                22     P5M0    DATA    0CAH
+  00B3                23     P4M1    DATA    0B3H
+  00B0                24     P3      DATA    0B0H
+  00AB                25     WKTCH   DATA    0ABH
+  00D6                26     AC      BIT     0D0H.6
+  00CC                27     P6M0    DATA    0CCH
+  00C9                28     P5M1    DATA    0C9H
+  00C0                29     P4      DATA    0C0H
+  00E2                30     P7M0    DATA    0E2H
+  00CB                31     P6M1    DATA    0CBH
+  00C8                32     P5      DATA    0C8H
+  00AF                33     EA      BIT     0A8H.7
+  00E8                34     P6      DATA    0E8H
+  00E1                35     P7M1    DATA    0E1H
+  00F8                36     P7      DATA    0F8H
+  00AA                37     WKTCL   DATA    0AAH
+  00CE                38     SPCTL   DATA    0CEH
+  00DF                39     CF      BIT     0D8H.7
+  00F9                40     CH      DATA    0F9H
+  00A2                41     P_SW1   DATA    0A2H
+  00BA                42     P_SW2   DATA    0BAH
+  00AD                43     EADC    BIT     0A8H.5
+  00E5                44     DPH1    DATA    0E5H
+  00A8                45     IE      DATA    0A8H
+  00E9                46     CL      DATA    0E9H
+  00C5                47     IAP_CMD DATA    0C5H
+  00FA                48     CCAP0H  DATA    0FAH
+  00FB                49     CCAP1H  DATA    0FBH
+  00E4                50     DPL1    DATA    0E4H
+  00FD                51     CCAP3H  DATA    0FDH
+  00BD                52     ADC_RES DATA    0BDH
+  00B6                53     IP2H    DATA    0B6H
+  00DE                54     CR      BIT     0D8H.6
+  00EE                55     IP3H    DATA    0EEH
+  00EA                56     CCAP0L  DATA    0EAH
+  00AE                57     TA      DATA    0AEH
+A51 MACRO ASSEMBLER  MAIN                                                                 02/17/2025 18:03:46 PAGE     2
+
+  00EB                58     CCAP1L  DATA    0EBH
+  00DA                59     CCAPM0  DATA    0DAH
+  00DB                60     CCAPM1  DATA    0DBH
+  008F                61     INTCLKO DATA    08FH
+  00AC                62     ES      BIT     0A8H.4
+  00ED                63     CCAP3L  DATA    0EDH
+  00BD                64     PADC    BIT     0B8H.5
+  00DD                65     CCAPM3  DATA    0DDH
+  00B8                66     IP      DATA    0B8H
+  0098                67     RI      BIT     098H.0
+  00D7                68     CY      BIT     0D0H.7
+  0099                69     TI      BIT     098H.1
+  00C3                70     IAP_ADDRH       DATA    0C3H
+  00BC                71     PS      BIT     0B8H.4
+  0081                72     SP      DATA    081H
+  00D9                73     CMOD    DATA    0D9H
+  00D8                74     CCON    DATA    0D8H
+  00C4                75     IAP_ADDRL       DATA    0C4H
+  00D2                76     OV      BIT     0D0H.2
+  009E                77     LIRTRIM DATA    09EH
+  00E6                78     CMPCR1  DATA    0E6H
+  00E7                79     CMPCR2  DATA    0E7H
+  00AE                80     ELVD    BIT     0A8H.6
+  0080                81     P00     BIT     080H.0
+  0090                82     P10     BIT     090H.0
+  0081                83     P01     BIT     080H.1
+  00BC                84     ADC_CONTR       DATA    0BCH
+  0099                85     SBUF    DATA    099H
+  0087                86     PCON    DATA    087H
+  00A0                87     P20     BIT     0A0H.0
+  0091                88     P11     BIT     090H.1
+  0082                89     P02     BIT     080H.2
+  00B0                90     P30     BIT     0B0H.0
+  00A1                91     P21     BIT     0A0H.1
+  0092                92     P12     BIT     090H.2
+  0083                93     P03     BIT     080H.3
+  00F5                94     IAP_TPS DATA    0F5H
+  00C0                95     P40     BIT     0C0H.0
+  00B1                96     P31     BIT     0B0H.1
+  00A2                97     P22     BIT     0A0H.2
+  0093                98     P13     BIT     090H.3
+  0084                99     P04     BIT     080H.4
+  0098               100     SCON    DATA    098H
+  00C8               101     P50     BIT     0C8H.0
+  00C1               102     P41     BIT     0C0H.1
+  00B2               103     P32     BIT     0B0H.2
+  00A3               104     P23     BIT     0A0H.3
+  0094               105     P14     BIT     090H.4
+  0085               106     P05     BIT     080H.5
+  0089               107     TMOD    DATA    089H
+  0088               108     TCON    DATA    088H
+  00E8               109     P60     BIT     0E8H.0
+  00C9               110     P51     BIT     0C8H.1
+  00C2               111     P42     BIT     0C0H.2
+  00B3               112     P33     BIT     0B0H.3
+  00A4               113     P24     BIT     0A0H.4
+  0095               114     P15     BIT     090H.5
+  0086               115     P06     BIT     080H.6
+  00BE               116     PLVD    BIT     0B8H.6
+  00F8               117     P70     BIT     0F8H.0
+  00E9               118     P61     BIT     0E8H.1
+  00CA               119     P52     BIT     0C8H.2
+  00C3               120     P43     BIT     0C0H.3
+  00B4               121     P34     BIT     0B0H.4
+  00A5               122     P25     BIT     0A0H.5
+  0096               123     P16     BIT     090H.6
+A51 MACRO ASSEMBLER  MAIN                                                                 02/17/2025 18:03:46 PAGE     3
+
+  0087               124     P07     BIT     080H.7
+  00F9               125     P71     BIT     0F8H.1
+  00EA               126     P62     BIT     0E8H.2
+  00CB               127     P53     BIT     0C8H.3
+  00C4               128     P44     BIT     0C0H.4
+  00B5               129     P35     BIT     0B0H.5
+  00A6               130     P26     BIT     0A0H.6
+  0097               131     P17     BIT     090H.7
+  00FA               132     P72     BIT     0F8H.2
+  00EB               133     P63     BIT     0E8H.3
+  00CC               134     P54     BIT     0C8H.4
+  00C5               135     P45     BIT     0C0H.5
+  00B6               136     P36     BIT     0B0H.6
+  00A7               137     P27     BIT     0A0H.7
+  00FB               138     P73     BIT     0F8H.3
+  00EC               139     P64     BIT     0E8H.4
+  00CD               140     P55     BIT     0C8H.5
+  00C6               141     P46     BIT     0C0H.6
+  00B7               142     P37     BIT     0B0H.7
+  00AA               143     WKTC    DATA    0AAH
+  00FC               144     P74     BIT     0F8H.4
+  00ED               145     P65     BIT     0E8H.5
+  00CE               146     P56     BIT     0C8H.6
+  00C7               147     P47     BIT     0C0H.7
+  00FD               148     P75     BIT     0F8H.5
+  00EE               149     P66     BIT     0E8H.6
+  00CF               150     P57     BIT     0C8H.7
+  00FE               151     P76     BIT     0F8H.6
+  00EF               152     P67     BIT     0E8H.7
+  00FF               153     P77     BIT     0F8H.7
+  0089               154     IE0     BIT     088H.1
+  00A1               155     BUS_SPEED       DATA    0A1H
+  008B               156     IE1     BIT     088H.3
+  00AF               157     IE2     DATA    0AFH
+  00F0               158     B       DATA    0F0H
+  008E               159     AUXR    DATA    08EH
+  00FC               160     USBADR  DATA    0FCH
+  00C7               161     IAP_CONTR       DATA    0C7H
+  00EC               162     USBDAT  DATA    0ECH
+  00DC               163     USBCLK  DATA    0DCH
+  00E0               164     ACC     DATA    0E0H
+  00A9               165     ET0     BIT     0A8H.1
+  00AB               166     ET1     BIT     0A8H.3
+  008D               167     TF0     BIT     088H.5
+  008F               168     TF1     BIT     088H.7
+  00FF               169     RSTCFG  DATA    0FFH
+  00B5               170     IP2     DATA    0B5H
+  009A               171     RB8     BIT     098H.2
+  00F4               172     USBCON  DATA    0F4H
+  00DF               173     IP3     DATA    0DFH
+  008C               174     TH0     DATA    08CH
+  0088               175     IT0     BIT     088H.0
+  00A8               176     EX0     BIT     0A8H.0
+  008D               177     TH1     DATA    08DH
+  009B               178     TB8     BIT     098H.3
+  008A               179     IT1     BIT     088H.2
+  00AA               180     EX1     BIT     0A8H.2
+  00D6               181     T2H     DATA    0D6H
+  00D0               182     P       BIT     0D0H.0
+  00D4               183     T3H     DATA    0D4H
+  009F               184     SM0     BIT     098H.7
+  00D2               185     T4H     DATA    0D2H
+  008A               186     TL0     DATA    08AH
+  009E               187     SM1     BIT     098H.6
+  008B               188     TL1     DATA    08BH
+  009D               189     SM2     BIT     098H.5
+A51 MACRO ASSEMBLER  MAIN                                                                 02/17/2025 18:03:46 PAGE     4
+
+  00D7               190     T2L     DATA    0D7H
+  00D5               191     T3L     DATA    0D5H
+  00B9               192     PT0     BIT     0B8H.1
+  00D3               193     T4L     DATA    0D3H
+  00D3               194     RS0     BIT     0D0H.3
+  00BB               195     PT1     BIT     0B8H.3
+  00D4               196     RS1     BIT     0D0H.4
+  008C               197     TR0     BIT     088H.4
+  00C2               198     IAP_DATA        DATA    0C2H
+  008E               199     TR1     BIT     088H.6
+  00B8               200     PX0     BIT     0B8H.0
+  00C1               201     WDT_CONTR       DATA    0C1H
+  00BA               202     PX1     BIT     0B8H.2
+  009F               203     IRTRIM  DATA    09FH
+  00F2               204     PCA_PWM0        DATA    0F2H
+  00F3               205     PCA_PWM1        DATA    0F3H
+  00BB               206     VOCTRL  DATA    0BBH
+  0083               207     DPH     DATA    083H
+  00D1               208     T4T3M   DATA    0D1H
+  00BE               209     ADC_RESL        DATA    0BEH
+  0082               210     DPL     DATA    082H
+  00CD               211     SPSTAT  DATA    0CDH
+  00B7               212     IPH     DATA    0B7H
+  009B               213     S2BUF   DATA    09BH
+  00AD               214     S3BUF   DATA    0ADH
+  009C               215     REN     BIT     098H.4
+  0085               216     S4BUF   DATA    085H
+  009A               217     S2CON   DATA    09AH
+  00E3               218     DPS     DATA    0E3H
+  00AC               219     S3CON   DATA    0ACH
+  0084               220     S4CON   DATA    084H
+  00EF               221     AUXINTIF        DATA    0EFH
+  00B9               222     SADEN   DATA    0B9H
+  00A9               223     SADDR   DATA    0A9H
+  00C6               224     IAP_TRIG        DATA    0C6H
+  00D5               225     F0      BIT     0D0H.5
+  009D               226     IRCBAND DATA    09DH
+  00DE               227     ADC_CFG DATA    0DEH
+  00D0               228     PSW     DATA    0D0H
+  00D8               229     CCF0    BIT     0D8H.0
+  00D9               230     CCF1    BIT     0D8H.1
+  00CF               231     SPDAT   DATA    0CFH
+  0094               232     P0M0    DATA    094H
+                     233     ?PR?value_init?MAIN  SEGMENT CODE 
+                     234     ?PR?io_init?MAIN     SEGMENT CODE 
+                     235     ?PR?eeprom_off?MAIN  SEGMENT CODE 
+                     236     ?PR?eeprom_init?MAIN SEGMENT CODE 
+                     237     ?PR?_eeprom_erase?MAIN                   SEGMENT CODE 
+                     238     ?PR?_eeprom_write?MAIN                   SEGMENT CODE 
+                     239     ?PR?_eeprom_read?MAIN                    SEGMENT CODE 
+                     240     ?PR?uart_init?MAIN   SEGMENT CODE 
+                     241     ?PR?_uart_char?MAIN  SEGMENT CODE 
+                     242     ?PR?_uart_string?MAIN                    SEGMENT CODE 
+                     243     ?XD?_uart_string?MAIN                    SEGMENT XDATA OVERLAYABLE 
+                     244     ?PR?main?MAIN        SEGMENT CODE 
+                     245     ?CO?MAIN             SEGMENT CODE 
+                     246     ?C_INITSEG           SEGMENT CODE 
+                     247     ?DT?MAIN             SEGMENT DATA 
+                     248     ?XD?MAIN             SEGMENT XDATA 
+                     249             EXTRN   CODE (?C?CLDPTR)
+                     250             EXTRN   CODE (?C?ILDIX)
+                     251             EXTRN   CODE (?C_STARTUP)
+                     252             EXTRN   CODE (?C?ICALL)
+                     253             PUBLIC  jmp_app
+                     254             PUBLIC  data_n
+                     255             PUBLIC  data_len
+A51 MACRO ASSEMBLER  MAIN                                                                 02/17/2025 18:03:46 PAGE     5
+
+                     256             PUBLIC  flash_buf
+                     257             PUBLIC  data_count
+                     258             PUBLIC  flash_cmd
+                     259             PUBLIC  data_addr
+                     260             PUBLIC  flash_state
+                     261             PUBLIC  main
+                     262             PUBLIC  _uart_string
+                     263             PUBLIC  _uart_char
+                     264             PUBLIC  uart_init
+                     265             PUBLIC  _eeprom_read
+                     266             PUBLIC  _eeprom_write
+                     267             PUBLIC  _eeprom_erase
+                     268             PUBLIC  eeprom_init
+                     269             PUBLIC  eeprom_off
+                     270             PUBLIC  io_init
+                     271             PUBLIC  value_init
+                     272     
+----                 273             RSEG  ?XD?_uart_string?MAIN
+0000                 274     ?_uart_string?BYTE:
+0000                 275             str?946:   DS   3
+                     276     
+----                 277             RSEG  ?DT?MAIN
+0000                 278         flash_state:   DS   1
+0001                 279           data_addr:   DS   2
+0003                 280           flash_cmd:   DS   1
+0004                 281          data_count:   DS   2
+0006                 282            data_len:   DS   2
+0008                 283              data_n:   DS   2
+                     284     
+----                 285             RSEG  ?XD?MAIN
+0000                 286           flash_buf:   DS   256
+0100                 287             jmp_app:   DS   3
+                     288     
+----                 289             RSEG  ?CO?MAIN
+0000                 290     ?SC_0:
+0000 41495300        291             DB  'A' ,'I' ,'S' ,000H
+                     292     
+                     293     
+----                 294             RSEG  ?C_INITSEG
+0000 43              295             DB      043H
+0001 0000     F      296             DW      jmp_app
+0003 000800          297             DB      000H,008H,000H  ; ptr3
+                     298     
+                     299     ; #include"ecbm_reg.h"
+                     300     ; #include "intrins.h"    //µ¥Æ¬»úCÓïÑÔÊ¹ÓÃ»ã±àÖ¸ÁîµÄÍ·ÎÄ¼þ¡£
+                     301     ; //-----------------ÒÔÏÂÊÇÍ¼ÐÎÉèÖÃ½çÃæ£¬¿ÉÔÚConfiguration Wizard½çÃæÉèÖÃ-----------------
+                     302     ; //<<< Use Configuration Wizard in Context Menu >>>
+                     303     ; //<o>ÏµÍ³Ê±ÖÓÆµÂÊÑ¡Ôñ
+                     304     ; //<i>¶¨Òåµ¥Æ¬»úÔËÐÐµÄÊ±ÖÓÆµÂÊ£¨µ¥Î»Hz£©¡£
+                     305     ; //<5529600UL => 5.5296M 
+                     306     ; //<6000000UL => 6.0000M 
+                     307     ; //<11059200UL=>11.0592M 
+                     308     ; //<12000000UL=>12.0000M 
+                     309     ; //<18432000UL=>18.4320M  
+                     310     ; //<20000000UL=>20.0000M 
+                     311     ; //<22118400UL=>22.1184M 
+                     312     ; //<24000000UL=>24.0000M 
+                     313     ; //<26000000UL=>26.0000M
+                     314     ; //<27000000UL=>27.0000M
+                     315     ; //<30000000UL=>30.0000M 
+                     316     ; //<33000000UL=>33.0000M 
+                     317     ; //<33177600UL=>33.1776M 
+                     318     ; //<35000000UL=>35.0000M 
+                     319     ; //<36864000UL=>36.8640M 
+                     320     ; //<40000000UL=>40.0000M 
+                     321     ; //<44236800UL=>44.2368M 
+A51 MACRO ASSEMBLER  MAIN                                                                 02/17/2025 18:03:46 PAGE     6
+
+                     322     ; //<45000000UL=>45.0000M 
+                     323     ; //<45158400UL=>45.1584M 
+                     324     ; #define ECBM_SYSCLK_SETTING (11059200UL)
+                     325     ; //<o>²¨ÌØÂÊ
+                     326     ; //<600=>600 
+                     327     ; //<1200=>1200 
+                     328     ; //<2400=>2400 
+                     329     ; //<4800=>4800 
+                     330     ; //<9600=>9600 
+                     331     ; //<14400=>14400 
+                     332     ; //<19200=>19200 
+                     333     ; //<28800=>28800 
+                     334     ; //<38400=>38400 
+                     335     ; //<57600=>57600 
+                     336     ; //<115200=>115200
+                     337     ; //<230400=>230400 
+                     338     ; //<460800=>460800
+                     339     ; #define ECBM_UART_BAUD_RATE (115200)
+                     340     ; //<o>APPÇøµÄ´óÐ¡
+                     341     ; //<i>µ¥Î»KB
+                     342     ; //<1-63>
+                     343     ; #define APP_SIZE    (60)
+                     344     ; #define EEPROM_SIZE_MAX (APP_SIZE*2)
+                     345     ; //<<< end of configuration section >>>
+                     346     ; //-----------------ÒÔÉÏÊÇÍ¼ÐÎÉèÖÃ½çÃæ£¬¿ÉÔÚConfiguration Wizard½çÃæÉèÖÃ-----------------
+                     347     ; u8 xdata flash_buf[256];
+                     348     ; u8  data flash_state,flash_cmd;
+                     349     ; u16 data data_addr,data_len,data_count,data_n;
+                     350     ; /*-----------------------------------------BOOT½Å¶¨Òå------------------------------------
+                             -----*/
+                     351     ; #define BOOT_PIN        P11 //BOOT½ÅÉèÖÃÎªP1.1½Å,¡£
+                     352     ; #define BOOT_RUN_APP    0   //BOOT½ÅÎªµÍµçÆ½µÄÊ±ºòÔËÐÐAPP¡£
+                     353     ; #define BOOT_PIN_UPPULL do{P1PU = 0x02;}while(0)//´ò¿ªBOOT½ÅµÄÉÏÀ­µç×è¡£
+                     354     ; /*-------------------------------------------------------
+                     355     ; ±äÁ¿³õÊ¼»¯º¯Ê¡£
+                     356     ; -------------------------------------------------------*/
+                     357     ; void value_init(void){
+                     358     
+----                 359             RSEG  ?PR?value_init?MAIN
+0000                 360     value_init:
+                     361                             ; SOURCE LINE # 59
+                     362     ;     flash_state=0;//ÆäËû±äÁ¿»áÔÚÔËÐÐµÄÊ±ºò¸²¸Ç»òÇåÁã£¬¾Í²»ÓÃÔÚÕâÀïÇåÁãÁË¡£
+                     363                             ; SOURCE LINE # 60
+0000 E4              364             CLR     A
+0001 F500     F      365             MOV     flash_state,A
+                     366     ;     flash_cmd=0;
+                     367                             ; SOURCE LINE # 61
+0003 F500     F      368             MOV     flash_cmd,A
+                     369     ; }
+                     370                             ; SOURCE LINE # 62
+0005 22              371             RET     
+                     372     ; END OF value_init
+                     373     
+                     374     ; /*-------------------------------------------------------
+                     375     ; IO³õÊ¼»¯º¯Ê¡£
+                     376     ; -------------------------------------------------------*/
+                     377     ; void io_init(void){
+                     378     
+----                 379             RSEG  ?PR?io_init?MAIN
+0000                 380     io_init:
+                     381                             ; SOURCE LINE # 66
+                     382     ;     BOOT_PIN_UPPULL;//BOOT_IO´ò¿ªÉÏÀ­£¬·ÀÖ¹¸ß×èÌ¬ÏÂ¶Áµ½µÄµçÆ½²»ÎÈ¶¨¡£
+                     383                             ; SOURCE LINE # 67
+0000 90FE11          384             MOV     DPTR,#0FE11H
+0003 7402            385             MOV     A,#02H
+0005 F0              386             MOVX    @DPTR,A
+A51 MACRO ASSEMBLER  MAIN                                                                 02/17/2025 18:03:46 PAGE     7
+
+                     387     ; }
+                     388                             ; SOURCE LINE # 68
+0006 22              389             RET     
+                     390     ; END OF io_init
+                     391     
+                     392     ; #if (1)//eeprom²¿·ÖÕÛµþ
+                     393     ; /*-------------------------------------------------------
+                     394     ; eeprom¹Ø±Õº¯Ê¡£
+                     395     ; -------------------------------------------------------*/
+                     396     ; void eeprom_off(void){
+                     397     
+----                 398             RSEG  ?PR?eeprom_off?MAIN
+0000                 399     eeprom_off:
+                     400                             ; SOURCE LINE # 73
+                     401     ;     IAP_SET_REG_CONTR(0);       //¹Ø±ÕIAP¹¦ÄÜ
+                     402                             ; SOURCE LINE # 74
+0000 E4              403             CLR     A
+0001 F5C7            404             MOV     IAP_CONTR,A
+                     405     ;     IAP_CMD_NOP;                //Çå³ÃüÁî¼Ä´æÆ÷
+                     406                             ; SOURCE LINE # 75
+0003 F5C5            407             MOV     IAP_CMD,A
+                     408     ;     IAP_TRIG_CLS;               //Çå³´¥·¢¼Ä´æÆ÷
+                     409                             ; SOURCE LINE # 76
+0005 F5C6            410             MOV     IAP_TRIG,A
+                     411     ;     IAP_SET_REG_ADDR_H8(0xff);  //½«µØÖ·ÉèÖÃµ½·ÇIAPÇøÓò
+                     412                             ; SOURCE LINE # 77
+0007 75C3FF          413             MOV     IAP_ADDRH,#0FFH
+                     414     ;     IAP_SET_REG_ADDR_L8(0xff);  //½«µØÖ·ÉèÖÃµ½·ÇIAPÇøÓò
+                     415                             ; SOURCE LINE # 78
+000A 75C4FF          416             MOV     IAP_ADDRL,#0FFH
+                     417     ; }
+                     418                             ; SOURCE LINE # 79
+000D 22              419             RET     
+                     420     ; END OF eeprom_off
+                     421     
+                     422     ; /*-------------------------------------------------------
+                     423     ; eeprom³õÊ¼»¯º¯Ê¡£
+                     424     ; -------------------------------------------------------*/
+                     425     ; void eeprom_init(void){
+                     426     
+----                 427             RSEG  ?PR?eeprom_init?MAIN
+0000                 428     eeprom_init:
+                     429                             ; SOURCE LINE # 83
+                     430     ;     IAP_TPS=ECBM_SYSCLK_SETTING/1000000;
+                     431                             ; SOURCE LINE # 84
+0000 75F50B          432             MOV     IAP_TPS,#0BH
+                     433     ;     eeprom_off();
+                     434                             ; SOURCE LINE # 85
+0003 020000   F      435             LJMP    eeprom_off
+                     436     ; END OF eeprom_init
+                     437     
+                     438     ; }
+                     439     ; /*-------------------------------------------------------
+                     440     ; eeprom²Á³º¯Ê¡£
+                     441     ; -------------------------------------------------------*/
+                     442     ; void eeprom_erase(u16 addr){
+                     443     
+----                 444             RSEG  ?PR?_eeprom_erase?MAIN
+0000                 445     L?0188:
+                     446             USING   0
+0000                 447     L?0189:
+0000 E500     F      448             MOV     A,data_n+01H
+0002 7F00            449             MOV     R7,#00H
+0004 25E0            450             ADD     A,ACC
+0006 FE              451             MOV     R6,A
+0007 EF              452             MOV     A,R7
+A51 MACRO ASSEMBLER  MAIN                                                                 02/17/2025 18:03:46 PAGE     8
+
+0008 2500     F      453             ADD     A,data_addr+01H
+000A FF              454             MOV     R7,A
+000B E500     F      455             MOV     A,data_addr
+000D 3E              456             ADDC    A,R6
+000E FE              457             MOV     R6,A
+000F                 458     _eeprom_erase:
+                     459             USING   0
+                     460                             ; SOURCE LINE # 90
+                     461     ;---- Variable 'addr?440' assigned to Register 'R6/R7' ----
+                     462     ;     if((addr>=0x0200)&&(addr<0x0A00))return;
+                     463                             ; SOURCE LINE # 91
+000F C3              464             CLR     C
+0010 EE              465             MOV     A,R6
+0011 9402            466             SUBB    A,#02H
+0013 4005            467             JC      ?C0023
+0015 EE              468             MOV     A,R6
+0016 940A            469             SUBB    A,#0AH
+0018 4027            470             JC      ?C0024
+001A                 471     ?C0023:
+                     472     ;     if(addr>=0x0A00)addr-=(0x0A00-0x0200);
+                     473                             ; SOURCE LINE # 92
+001A C3              474             CLR     C
+001B EE              475             MOV     A,R6
+001C 940A            476             SUBB    A,#0AH
+001E 4007            477             JC      ?C0028
+0020 E4              478             CLR     A
+0021 2F              479             ADD     A,R7
+0022 FF              480             MOV     R7,A
+0023 74F8            481             MOV     A,#0F8H
+0025 3E              482             ADDC    A,R6
+0026 FE              483             MOV     R6,A
+0027                 484     ?C0028:
+                     485     ;     IAP_SET_REG_CONTR(IAP_EN);//Ê¹ÄÜIAP
+                     486                             ; SOURCE LINE # 93
+0027 75C780          487             MOV     IAP_CONTR,#080H
+                     488     ;     IAP_CMD_ERASE;              //ÉèÖÃIAP²Á³ÃüÁî
+                     489                             ; SOURCE LINE # 94
+002A 75C503          490             MOV     IAP_CMD,#03H
+                     491     ;     IAP_SET_REG_ADDR_HL(addr);  //ÉèÖÃIAPµØÖ·
+                     492                             ; SOURCE LINE # 95
+002D 8FC4            493             MOV     IAP_ADDRL,R7
+002F EE              494             MOV     A,R6
+0030 F5C3            495             MOV     IAP_ADDRH,A
+                     496     ;     IAP_TRIG_ON;                //´¥·¢ÃüÁî
+                     497                             ; SOURCE LINE # 96
+0032 75C65A          498             MOV     IAP_TRIG,#05AH
+0035 75C6A5          499             MOV     IAP_TRIG,#0A5H
+                     500     ;     _nop_();_nop_();_nop_();_nop_();_nop_();_nop_();//ÉÔÉÔµÈ´Ò»ÏÂ
+                     501                             ; SOURCE LINE # 97
+0038 00              502             NOP     
+0039 00              503             NOP     
+003A 00              504             NOP     
+003B 00              505             NOP     
+003C 00              506             NOP     
+003D 00              507             NOP     
+                     508     ;     eeprom_off();               //¹Ø±ÕIAP¹¦ÄÜ
+                     509                             ; SOURCE LINE # 98
+003E 120000   F      510             LCALL   eeprom_off
+                     511     ; }
+                     512                             ; SOURCE LINE # 99
+0041                 513     ?C0024:
+0041 22              514             RET     
+                     515     ; END OF _eeprom_erase
+                     516     
+                     517     ; /*-------------------------------------------------------
+                     518     ; eepromÐ´º¯Ê¡£
+A51 MACRO ASSEMBLER  MAIN                                                                 02/17/2025 18:03:46 PAGE     9
+
+                     519     ; -------------------------------------------------------*/
+                     520     ; void eeprom_write(u16 addr,u8 dat){
+                     521     
+----                 522             RSEG  ?PR?_eeprom_write?MAIN
+0000                 523     _eeprom_write:
+                     524             USING   0
+                     525                             ; SOURCE LINE # 103
+                     526     ;---- Variable 'addr?541' assigned to Register 'R6/R7' ----
+                     527     ;---- Variable 'dat?542' assigned to Register 'R5' ----
+                     528     ;     if((addr>=0x0200)&&(addr<0x0A00))return;
+                     529                             ; SOURCE LINE # 104
+0000 C3              530             CLR     C
+0001 EE              531             MOV     A,R6
+0002 9402            532             SUBB    A,#02H
+0004 4005            533             JC      ?C0038
+0006 EE              534             MOV     A,R6
+0007 940A            535             SUBB    A,#0AH
+0009 402B            536             JC      ?C0039
+000B                 537     ?C0038:
+                     538     ;     if(addr>=0x0A00)addr-=(0x0A00-0x0200);
+                     539                             ; SOURCE LINE # 105
+000B C3              540             CLR     C
+000C EE              541             MOV     A,R6
+000D 940A            542             SUBB    A,#0AH
+000F 4007            543             JC      ?C0043
+0011 E4              544             CLR     A
+0012 2F              545             ADD     A,R7
+0013 FF              546             MOV     R7,A
+0014 74F8            547             MOV     A,#0F8H
+0016 3E              548             ADDC    A,R6
+0017 FE              549             MOV     R6,A
+0018                 550     ?C0043:
+                     551     ;     IAP_SET_REG_CONTR(IAP_EN);//Ê¹ÄÜIAP
+                     552                             ; SOURCE LINE # 106
+0018 75C780          553             MOV     IAP_CONTR,#080H
+                     554     ;     IAP_CMD_WRITE;              //ÉèÖÃIAPÐ´ÃüÁî
+                     555                             ; SOURCE LINE # 107
+001B 75C502          556             MOV     IAP_CMD,#02H
+                     557     ;     IAP_SET_REG_ADDR_HL(addr);  //ÉèÖÃIAPµØÖ·
+                     558                             ; SOURCE LINE # 108
+001E 8FC4            559             MOV     IAP_ADDRL,R7
+0020 EE              560             MOV     A,R6
+0021 F5C3            561             MOV     IAP_ADDRH,A
+                     562     ;     IAP_SET_REG_DATA(dat);      //Ð´IAPÊ¾Ý
+                     563                             ; SOURCE LINE # 109
+0023 AF05            564             MOV     R7,AR5
+0025 8FC2            565             MOV     IAP_DATA,R7
+                     566     ;     IAP_TRIG_ON;                //´¥·¢ÃüÁî
+                     567                             ; SOURCE LINE # 110
+0027 75C65A          568             MOV     IAP_TRIG,#05AH
+002A 75C6A5          569             MOV     IAP_TRIG,#0A5H
+                     570     ;     _nop_();_nop_();_nop_();_nop_();_nop_();_nop_();//ÉÔÉÔµÈ´Ò»ÏÂ
+                     571                             ; SOURCE LINE # 111
+002D 00              572             NOP     
+002E 00              573             NOP     
+002F 00              574             NOP     
+0030 00              575             NOP     
+0031 00              576             NOP     
+0032 00              577             NOP     
+                     578     ;     eeprom_off();               //¹Ø±ÕIAP¹¦ÄÜ
+                     579                             ; SOURCE LINE # 112
+0033 120000   F      580             LCALL   eeprom_off
+                     581     ; }
+                     582                             ; SOURCE LINE # 113
+0036                 583     ?C0039:
+0036 22              584             RET     
+A51 MACRO ASSEMBLER  MAIN                                                                 02/17/2025 18:03:46 PAGE    10
+
+                     585     ; END OF _eeprom_write
+                     586     
+                     587     ; /*-------------------------------------------------------
+                     588     ; eeprom¶Áº¯Ê¡£
+                     589     ; -------------------------------------------------------*/
+                     590     ; u8 eeprom_read(u16 addr){
+                     591     
+----                 592             RSEG  ?PR?_eeprom_read?MAIN
+0000                 593     _eeprom_read:
+                     594             USING   0
+                     595                             ; SOURCE LINE # 117
+                     596     ;---- Variable 'addr?643' assigned to Register 'R6/R7' ----
+                     597     ;     u8 dat_u8;
+                     598     ;     if((addr>=0x0200)&&(addr<0x0A00))return 0xff;
+                     599                             ; SOURCE LINE # 119
+0000 C3              600             CLR     C
+0001 EE              601             MOV     A,R6
+0002 9402            602             SUBB    A,#02H
+0004 4008            603             JC      ?C0056
+0006 EE              604             MOV     A,R6
+0007 940A            605             SUBB    A,#0AH
+0009 5003            606             JNC     ?C0056
+000B 7FFF            607             MOV     R7,#0FFH
+000D 22              608             RET     
+000E                 609     ?C0056:
+                     610     ;     if(addr>=0x0A00)addr-=(0x0A00-0x0200);
+                     611                             ; SOURCE LINE # 120
+000E C3              612             CLR     C
+000F EE              613             MOV     A,R6
+0010 940A            614             SUBB    A,#0AH
+0012 4007            615             JC      ?C0061
+0014 E4              616             CLR     A
+0015 2F              617             ADD     A,R7
+0016 FF              618             MOV     R7,A
+0017 74F8            619             MOV     A,#0F8H
+0019 3E              620             ADDC    A,R6
+001A FE              621             MOV     R6,A
+001B                 622     ?C0061:
+                     623     ;     IAP_SET_REG_CONTR(IAP_EN);    //Ê¹ÄÜIAP
+                     624                             ; SOURCE LINE # 121
+001B 75C780          625             MOV     IAP_CONTR,#080H
+                     626     ;     IAP_CMD_READ;               //ÉèÖÃIAP¶ÁÃüÁî
+                     627                             ; SOURCE LINE # 122
+001E 75C501          628             MOV     IAP_CMD,#01H
+                     629     ;     IAP_SET_REG_ADDR_HL(addr);  //ÉèÖÃIAPµØÖ·
+                     630                             ; SOURCE LINE # 123
+0021 8FC4            631             MOV     IAP_ADDRL,R7
+0023 EE              632             MOV     A,R6
+0024 F5C3            633             MOV     IAP_ADDRH,A
+                     634     ;     IAP_TRIG_ON;                //´¥·¢ÃüÁî
+                     635                             ; SOURCE LINE # 124
+0026 75C65A          636             MOV     IAP_TRIG,#05AH
+0029 75C6A5          637             MOV     IAP_TRIG,#0A5H
+                     638     ;     _nop_();_nop_();_nop_();_nop_();_nop_();_nop_();//ÉÔÉÔµÈ´Ò»ÏÂ
+                     639                             ; SOURCE LINE # 125
+002C 00              640             NOP     
+002D 00              641             NOP     
+002E 00              642             NOP     
+002F 00              643             NOP     
+0030 00              644             NOP     
+0031 00              645             NOP     
+                     646     ;     dat_u8=IAP_GET_REG_DATA;    //¶ÁIAPÊ¾Ý
+                     647                             ; SOURCE LINE # 126
+                     648     ;---- Variable 'dat_u8?644' assigned to Register 'R7' ----
+0032 AFC2            649             MOV     R7,IAP_DATA
+                     650     ;     eeprom_off();               //¹Ø±ÕIAP¹¦ÄÜ
+A51 MACRO ASSEMBLER  MAIN                                                                 02/17/2025 18:03:46 PAGE    11
+
+                     651                             ; SOURCE LINE # 127
+0034 120000   F      652             LCALL   eeprom_off
+                     653     ;     return dat_u8;
+                     654                             ; SOURCE LINE # 128
+                     655     ; }
+                     656                             ; SOURCE LINE # 129
+0037                 657     ?C0057:
+0037 22              658             RET     
+                     659     ; END OF _eeprom_read
+                     660     
+                     661     ; #endif
+                     662     ; #if (1)//´®¿Ú²¿·ÖÕÛµþ
+                     663     ; /*-------------------------------------------------------
+                     664     ; ´®¿Ú³õÊ¼»¯º¯Ê¡£
+                     665     ; -------------------------------------------------------*/
+                     666     ; void uart_init(void){
+                     667     
+----                 668             RSEG  ?PR?uart_init?MAIN
+0000                 669     uart_init:
+                     670                             ; SOURCE LINE # 135
+                     671     ;     UART1_SET_MODE_A_8_BAUD;//ÉèÖÃ´®¿ÚÎª8Î»ÎÞÐ£Ñé£¬1¸öÍ£Ö¹Î»¡£
+                     672                             ; SOURCE LINE # 136
+0000 E598            673             MOV     A,SCON
+0002 543F            674             ANL     A,#03FH
+0004 4440            675             ORL     A,#040H
+0006 F598            676             MOV     SCON,A
+                     677     ;     UART1_SET_RXD_ENABLE;   //Æô¶¯´®¿Ú½ÓÊÕ¡£
+                     678                             ; SOURCE LINE # 137
+0008 D29C            679             SETB    REN
+                     680     ;     UART1_SET_CLK_TIMER1;   //ÉèÖÃ´®¿ÚÊ±ÖÓÎªTIMER1¡£
+                     681                             ; SOURCE LINE # 138
+000A 538EFE          682             ANL     AUXR,#0FEH
+                     683     ;     TIMER1_SET_REG_HL((u16)(65536-(u16)(ECBM_SYSCLK_SETTING/4/ECBM_UART_BAUD_RATE)));//Éè
+                             ÖÃ²¨ÌØÂÊ¡£
+                     684                             ; SOURCE LINE # 139
+000D 758BE8          685             MOV     TL1,#0E8H
+0010 758DFF          686             MOV     TH1,#0FFH
+                     687     ;     TIMER1_SET_MODE_1T;     //Éè¶¨¶¨Ê±Æ÷1Îª1TÄ£Ê½£¬
+                     688                             ; SOURCE LINE # 140
+0013 438E40          689             ORL     AUXR,#040H
+                     690     ;     TIMER1_SET_REG_TMOD(0); //Éè¶¨¶¨Ê±Æ÷1Îª16Î»×Ô¶¯ÖØ×°·½Ê½£¬Ä¿Ç°ÕâÑùÉèÖÃÒÑ¾­ÄÜÂú×ã³£ÓÃµÄ
+                             ²¨ÌØÂÊÁË¡£
+                     691                             ; SOURCE LINE # 141
+0016 53890F          692             ANL     TMOD,#0FH
+                     693     ;     TIMER1_IT_DISABLE;      //½ûÖ¹¶¨Ê±Æ÷1ÖÐ¶Ï¡£
+                     694                             ; SOURCE LINE # 142
+0019 C2AB            695             CLR     ET1
+                     696     ;     TIMER1_POWER_ON;        //Æô¶¯¶¨Ê±Æ÷1¡£
+                     697                             ; SOURCE LINE # 143
+001B C28F            698             CLR     TF1
+001D D28E            699             SETB    TR1
+                     700     ; }
+                     701                             ; SOURCE LINE # 144
+001F 22              702             RET     
+                     703     ; END OF uart_init
+                     704     
+                     705     ; /*-------------------------------------------------------
+                     706     ; ´®¿Ú·¢ËÍº¯Ê¡£
+                     707     ; -------------------------------------------------------*/
+                     708     ; void uart_char(u8 ch){
+                     709     
+----                 710             RSEG  ?PR?_uart_char?MAIN
+0000                 711     _uart_char:
+                     712                             ; SOURCE LINE # 148
+                     713     ;---- Variable 'ch?845' assigned to Register 'R7' ----
+                     714     ;     UART1_SET_REG_SBUF(ch);
+A51 MACRO ASSEMBLER  MAIN                                                                 02/17/2025 18:03:46 PAGE    12
+
+                     715                             ; SOURCE LINE # 149
+0000 8F99            716             MOV     SBUF,R7
+0002                 717     ?C0099:
+                     718     ;     while(!UART1_GET_TI_FLAG);
+                     719                             ; SOURCE LINE # 150
+0002 3099FD          720             JNB     TI,?C0099
+                     721     ;     UART1_CLR_TI_FLAG;
+                     722                             ; SOURCE LINE # 151
+0005 C299            723             CLR     TI
+                     724     ; }
+                     725                             ; SOURCE LINE # 152
+0007 22              726             RET     
+                     727     ; END OF _uart_char
+                     728     
+                     729     ; /*-------------------------------------------------------
+                     730     ; ´®¿Ú×Ö·û´®·¢ËÍº¯Ê¡£
+                     731     ; -------------------------------------------------------*/
+                     732     ; void uart_string(u8 * str){
+                     733     
+----                 734             RSEG  ?PR?_uart_string?MAIN
+0000                 735     L?0185:
+                     736             USING   0
+0000 E4              737             CLR     A
+0001                 738     L?0186:
+0001 F500     F      739             MOV     flash_state,A
+0003                 740     L?0187:
+0003 7BFF            741             MOV     R3,#0FFH
+0005 7A00     F      742             MOV     R2,#HIGH (?SC_0)
+0007 7900     F      743             MOV     R1,#LOW (?SC_0)
+0009                 744     _uart_string:
+                     745             USING   0
+                     746                             ; SOURCE LINE # 156
+0009 900000   F      747             MOV     DPTR,#str?946
+000C EB              748             MOV     A,R3
+000D F0              749             MOVX    @DPTR,A
+000E A3              750             INC     DPTR
+000F EA              751             MOV     A,R2
+0010 F0              752             MOVX    @DPTR,A
+0011 A3              753             INC     DPTR
+0012 E9              754             MOV     A,R1
+0013 F0              755             MOVX    @DPTR,A
+0014                 756     ?C0105:
+                     757     ;     while(*str){
+                     758                             ; SOURCE LINE # 157
+0014 900000   F      759             MOV     DPTR,#str?946
+0017 E0              760             MOVX    A,@DPTR
+0018 FB              761             MOV     R3,A
+0019 A3              762             INC     DPTR
+001A E0              763             MOVX    A,@DPTR
+001B FA              764             MOV     R2,A
+001C A3              765             INC     DPTR
+001D E0              766             MOVX    A,@DPTR
+001E F9              767             MOV     R1,A
+001F 120000   F      768             LCALL   ?C?CLDPTR
+0022 6017            769             JZ      ?C0107
+                     770     ;         uart_char(*str++);
+                     771                             ; SOURCE LINE # 158
+0024 900000   F      772             MOV     DPTR,#str?946
+0027 A3              773             INC     DPTR
+0028 E4              774             CLR     A
+0029 75F001          775             MOV     B,#01H
+002C 120000   F      776             LCALL   ?C?ILDIX
+002F A9F0            777             MOV     R1,B
+0031 FA              778             MOV     R2,A
+0032 120000   F      779             LCALL   ?C?CLDPTR
+0035 FF              780             MOV     R7,A
+A51 MACRO ASSEMBLER  MAIN                                                                 02/17/2025 18:03:46 PAGE    13
+
+0036 120000   F      781             LCALL   _uart_char
+                     782     ;     }
+                     783                             ; SOURCE LINE # 159
+0039 80D9            784             SJMP    ?C0105
+                     785     ; }
+                     786                             ; SOURCE LINE # 160
+003B                 787     ?C0107:
+003B 22              788             RET     
+                     789     ; END OF _uart_string
+                     790     
+                     791     ; #endif
+                     792     ; void (*jmp_app)(void) = (void (*)(void))0x0800;
+                     793     ; 
+                     794     ; /*-------------------------------------------------------
+                     795     ; Ö÷º¯Ê¡£
+                     796     ; -------------------------------------------------------*/
+                     797     ; void main(void){        //mainº¯Ê£¬±ØÐëµÄ¡£
+                     798     
+----                 799             RSEG  ?PR?main?MAIN
+0000                 800     main:
+                     801             USING   0
+                     802                             ; SOURCE LINE # 167
+                     803     ;     EX_SFR_ENABLE;      //´ò¿ª¶îÍâ¼Ä´æÆ÷¡£
+                     804                             ; SOURCE LINE # 168
+0000 43BA80          805             ORL     P_SW2,#080H
+                     806     ;     value_init();       //³õÊ¼»¯±äÁ¿¡£
+                     807                             ; SOURCE LINE # 169
+0003 120000   F      808             LCALL   value_init
+                     809     ;     io_init();          //³õÊ¼»¯IO¡£
+                     810                             ; SOURCE LINE # 170
+0006 120000   F      811             LCALL   io_init
+                     812     ;     if(BOOT_PIN==BOOT_RUN_APP){//Èç¹ûBOOT½ÅÎªµÍµçÆ½£¬ÔòÔËÐÐAPP¡£
+                     813                             ; SOURCE LINE # 171
+0009 20910C          814             JB      P11,?C0111
+                     815     ;         jmp_app(); 
+                     816                             ; SOURCE LINE # 172
+000C 900000   F      817             MOV     DPTR,#jmp_app
+000F A3              818             INC     DPTR
+0010 E0              819             MOVX    A,@DPTR
+0011 FA              820             MOV     R2,A
+0012 A3              821             INC     DPTR
+0013 E0              822             MOVX    A,@DPTR
+0014 F9              823             MOV     R1,A
+0015 120000   F      824             LCALL   ?C?ICALL
+                     825     ;     }
+                     826                             ; SOURCE LINE # 173
+0018                 827     ?C0111:
+                     828     ;     uart_init();
+                     829                             ; SOURCE LINE # 174
+0018 120000   F      830             LCALL   uart_init
+                     831     ;     eeprom_init();
+                     832                             ; SOURCE LINE # 175
+001B 120000   F      833             LCALL   eeprom_init
+001E                 834     ?C0112:
+                     835     ;     while(1){
+                     836                             ; SOURCE LINE # 176
+                     837     ;         if(UART1_GET_RI_FLAG){//´®¿Ú1½ÓÊÕÖÐ¶Ï¡£
+                     838                             ; SOURCE LINE # 177
+001E 3098FD          839             JNB     RI,?C0112
+                     840     ;             UART1_CLR_RI_FLAG;//Çåµô´®¿Ú1½ÓÊÕ±êÖ¾¡£
+                     841                             ; SOURCE LINE # 178
+0021 C298            842             CLR     RI
+                     843     ;             switch(flash_state){
+                     844                             ; SOURCE LINE # 179
+0023 E500     F      845             MOV     A,flash_state
+0025 B40D00          846             CJNE    A,#0DH,?C0172
+A51 MACRO ASSEMBLER  MAIN                                                                 02/17/2025 18:03:46 PAGE    14
+
+0028                 847     ?C0172:
+0028 50F4            848             JNC     ?C0112
+002A 900000   F      849             MOV     DPTR,#?C0173
+002D F8              850             MOV     R0,A
+002E 28              851             ADD     A,R0
+002F 28              852             ADD     A,R0
+0030 73              853             JMP     @A+DPTR
+0031                 854     ?C0173:
+0031 020000   F      855             LJMP    ?C0119
+0034 020000   F      856             LJMP    ?C0121
+0037 020000   F      857             LJMP    ?C0124
+003A 020000   F      858             LJMP    ?C0127
+003D 020000   F      859             LJMP    ?C0143
+0040 020000   F      860             LJMP    ?C0143
+0043 020000   F      861             LJMP    ?C0143
+0046 020000   F      862             LJMP    ?C0143
+0049 020000   F      863             LJMP    ?C0160
+004C 020000   F      864             LJMP    ?C0160
+004F 020000   F      865             LJMP    ?C0160
+0052 020000   F      866             LJMP    ?C0160
+0055 020000   F      867             LJMP    ?C0166
+                     868     ;                 case 0:{if(UART1_GET_REG_SBUF=='A'){flash_state=1;}}break;
+                     869                             ; SOURCE LINE # 180
+0058                 870     ?C0119:
+0058 E599            871             MOV     A,SBUF
+005A B441C1          872             CJNE    A,#041H,?C0112
+005D 750001   F      873             MOV     flash_state,#01H
+0060 80BC            874             SJMP    ?C0112
+                     875     ;                 case 1:{if(UART1_GET_REG_SBUF=='I'){flash_state=2;}else{flash_state=0;}}b
+                             reak;
+                     876                             ; SOURCE LINE # 181
+0062                 877     ?C0121:
+0062 E599            878             MOV     A,SBUF
+0064 B44905          879             CJNE    A,#049H,?C0122
+0067 750002   F      880             MOV     flash_state,#02H
+006A 80B2            881             SJMP    ?C0112
+006C                 882     ?C0122:
+006C 800A            883             SJMP    ?C0182
+                     884     ;                 case 2:{if(UART1_GET_REG_SBUF=='C'){flash_state=3;}else{flash_state=0;}}b
+                             reak;
+                     885                             ; SOURCE LINE # 182
+006E                 886     ?C0124:
+006E E599            887             MOV     A,SBUF
+0070 B44305          888             CJNE    A,#043H,?C0125
+0073 750003   F      889             MOV     flash_state,#03H
+0076 80A6            890             SJMP    ?C0112
+0078                 891     ?C0125:
+0078                 892     ?C0182:
+0078 E4              893             CLR     A
+0079 F500     F      894             MOV     flash_state,A
+007B 80A1            895             SJMP    ?C0112
+                     896     ;                 case 3:{
+                     897                             ; SOURCE LINE # 183
+007D                 898     ?C0127:
+                     899     ;                     flash_cmd=UART1_GET_REG_SBUF;
+                     900                             ; SOURCE LINE # 184
+007D 859900   F      901             MOV     flash_cmd,SBUF
+                     902     ;                     switch(flash_cmd){
+                     903                             ; SOURCE LINE # 185
+0080 E500     F      904             MOV     A,flash_cmd
+0082 240F            905             ADD     A,#0FH
+0084 601F            906             JZ      ?C0130
+0086 24FD            907             ADD     A,#0FDH
+0088 602C            908             JZ      ?C0131
+008A 2402            909             ADD     A,#02H
+008C 24FA            910             ADD     A,#0FAH
+A51 MACRO ASSEMBLER  MAIN                                                                 02/17/2025 18:03:46 PAGE    15
+
+008E 504B            911             JNC     ?C0139
+0090 2408            912             ADD     A,#08H
+0092 708A            913             JNZ     ?C0112
+                     914     ;                         case 0xF0:{//²éÑ¯ÐÍºÅ
+                     915                             ; SOURCE LINE # 186
+0094                 916     ?C0129:
+                     917     ;                             flash_state=0;
+                     918                             ; SOURCE LINE # 187
+                     919     ;                             uart_string("AIS");
+                     920                             ; SOURCE LINE # 188
+0094 120000   F      921             LCALL   L?0185
+                     922     ;                             uart_char(0xEF);//³§ÉÌID
+                     923                             ; SOURCE LINE # 189
+0097 7FEF            924             MOV     R7,#0EFH
+0099 120000   F      925             LCALL   _uart_char
+                     926     ;                             uart_char(0x40);//ÀàÐÍID
+                     927                             ; SOURCE LINE # 190
+009C 7F40            928             MOV     R7,#040H
+009E 120000   F      929             LCALL   _uart_char
+                     930     ;                             uart_char(0x11);//ÈÝÁ¿ID            
+                     931                             ; SOURCE LINE # 191
+00A1 7F11            932             MOV     R7,#011H
+                     933     ;                         }break;
+                     934                             ; SOURCE LINE # 192
+00A3 800B            935             SJMP    ?C0183
+                     936     ;                         case 0xF1:{//²éÑ¯×´Ì¬
+                     937                             ; SOURCE LINE # 193
+00A5                 938     ?C0130:
+                     939     ;                             flash_state=0;
+                     940                             ; SOURCE LINE # 194
+                     941     ;                             uart_string("AIS");
+                     942                             ; SOURCE LINE # 195
+00A5 120000   F      943             LCALL   L?0185
+                     944     ;                             uart_char(0x00);//×´Ì¬1
+                     945                             ; SOURCE LINE # 196
+00A8 E4              946             CLR     A
+00A9 FF              947             MOV     R7,A
+00AA 120000   F      948             LCALL   _uart_char
+                     949     ;                             uart_char(0x00);//×´Ì¬2
+                     950                             ; SOURCE LINE # 197
+00AD 120000   F      951             LCALL   _uart_char
+                     952     ;                             uart_char(0x00);//×´Ì¬3
+                     953                             ; SOURCE LINE # 198
+00B0                 954     ?C0183:
+00B0 120000   F      955             LCALL   _uart_char
+                     956     ;                         }break;
+                     957                             ; SOURCE LINE # 199
+00B3 020000   F      958             LJMP    ?C0112
+                     959     ;                         case 0xF4:{//È«Æ¬²Á³
+                     960                             ; SOURCE LINE # 200
+00B6                 961     ?C0131:
+                     962     ;                             flash_state=0;
+                     963                             ; SOURCE LINE # 201
+00B6 E4              964             CLR     A
+00B7 F500     F      965             MOV     flash_state,A
+                     966     ;                             for(data_n=0;data_n<EEPROM_SIZE_MAX;data_n++){
+                     967                             ; SOURCE LINE # 202
+00B9 F500     F      968             MOV     data_n,A
+00BB F500     F      969             MOV     data_n+01H,A
+00BD                 970     ?C0132:
+                     971     ;                                 eeprom_erase((u16)(data_n*512));
+                     972                             ; SOURCE LINE # 203
+00BD E500     F      973             MOV     A,data_n+01H
+00BF 7F00            974             MOV     R7,#00H
+00C1 25E0            975             ADD     A,ACC
+00C3 FE              976             MOV     R6,A
+A51 MACRO ASSEMBLER  MAIN                                                                 02/17/2025 18:03:46 PAGE    16
+
+00C4 120000   F      977             LCALL   _eeprom_erase
+                     978     ;                             }
+                     979                             ; SOURCE LINE # 204
+00C7 0500     F      980             INC     data_n+01H
+00C9 E500     F      981             MOV     A,data_n+01H
+00CB 7002            982             JNZ     ?C0174
+00CD 0500     F      983             INC     data_n
+00CF                 984     ?C0174:
+00CF C3              985             CLR     C
+00D0 9478            986             SUBB    A,#078H
+00D2 E500     F      987             MOV     A,data_n
+00D4 9400            988             SUBB    A,#00H
+00D6 40E5            989             JC      ?C0132
+00D8                 990     ?C0133:
+                     991     ;                             uart_string("AIS");
+                     992                             ; SOURCE LINE # 205
+                     993     ;                         }break;
+                     994                             ; SOURCE LINE # 206
+00D8 020000   F      995             LJMP    ?C0184
+                     996     ;                         case 0xF2:case 0xF3:case 0xF5:case 0xF6:case 0xF7:flash_state=4;b
+                             reak;
+                     997                             ; SOURCE LINE # 207
+00DB                 998     ?C0139:
+00DB 750004   F      999             MOV     flash_state,#04H
+00DE 020000   F     1000             LJMP    ?C0112
+                    1001     ;                     }
+                    1002                             ; SOURCE LINE # 208
+                    1003     ;                 }break;
+                    1004                             ; SOURCE LINE # 209
+                    1005     ;                 case 4:case 5:case 6:case 7:{
+                    1006                             ; SOURCE LINE # 210
+00E1                1007     ?C0143:
+                    1008     ;                     data_addr<<=8;
+                    1009                             ; SOURCE LINE # 211
+00E1 E500     F     1010             MOV     A,data_addr+01H
+00E3 750000   F     1011             MOV     data_addr+01H,#00H
+00E6 F500     F     1012             MOV     data_addr,A
+                    1013     ;                     data_addr+=(u16)(UART1_GET_REG_SBUF);
+                    1014                             ; SOURCE LINE # 212
+00E8 AF99           1015             MOV     R7,SBUF
+00EA EF             1016             MOV     A,R7
+00EB 2500     F     1017             ADD     A,data_addr+01H
+00ED F500     F     1018             MOV     data_addr+01H,A
+00EF E4             1019             CLR     A
+00F0 3500     F     1020             ADDC    A,data_addr
+00F2 F500     F     1021             MOV     data_addr,A
+                    1022     ;                     flash_state++;
+                    1023                             ; SOURCE LINE # 213
+00F4 0500     F     1024             INC     flash_state
+                    1025     ;                     if(flash_state==8){
+                    1026                             ; SOURCE LINE # 214
+00F6 E500     F     1027             MOV     A,flash_state
+00F8 6408           1028             XRL     A,#08H
+00FA 6003           1029             JZ      $ + 5H
+00FC 020000   F     1030             LJMP    ?C0112
+                    1031     ;                         if(flash_cmd==0xF5){//4K²Á³
+                    1032                             ; SOURCE LINE # 215
+00FF E500     F     1033             MOV     A,flash_cmd
+0101 B4F51E         1034             CJNE    A,#0F5H,?C0145
+                    1035     ;                             flash_state=0;
+                    1036                             ; SOURCE LINE # 216
+0104 E4             1037             CLR     A
+0105 F500     F     1038             MOV     flash_state,A
+                    1039     ;                             for(data_n=0;data_n<8;data_n++){
+                    1040                             ; SOURCE LINE # 217
+0107 F500     F     1041             MOV     data_n,A
+A51 MACRO ASSEMBLER  MAIN                                                                 02/17/2025 18:03:46 PAGE    17
+
+0109 F500     F     1042             MOV     data_n+01H,A
+010B                1043     ?C0146:
+                    1044     ;                                 eeprom_erase((u16)(data_addr+(u16)(data_n*512)));
+                    1045                             ; SOURCE LINE # 218
+010B 120000   F     1046             LCALL   L?0188
+                    1047     ;                             }
+                    1048                             ; SOURCE LINE # 219
+010E 0500     F     1049             INC     data_n+01H
+0110 E500     F     1050             MOV     A,data_n+01H
+0112 7002           1051             JNZ     ?C0175
+0114 0500     F     1052             INC     data_n
+0116                1053     ?C0175:
+0116 C3             1054             CLR     C
+0117 9408           1055             SUBB    A,#08H
+0119 E500     F     1056             MOV     A,data_n
+011B 9400           1057             SUBB    A,#00H
+011D 40EC           1058             JC      ?C0146
+011F                1059     ?C0147:
+                    1060     ;                             uart_string("AIS");
+                    1061                             ; SOURCE LINE # 220
+011F 120000   F     1062             LCALL   L?0187
+                    1063     ;                         }
+                    1064                             ; SOURCE LINE # 221
+0122                1065     ?C0145:
+                    1066     ;                         if(flash_cmd==0xF6){//32K²Á³
+                    1067                             ; SOURCE LINE # 222
+0122 E500     F     1068             MOV     A,flash_cmd
+0124 B4F61E         1069             CJNE    A,#0F6H,?C0149
+                    1070     ;                             flash_state=0;
+                    1071                             ; SOURCE LINE # 223
+0127 E4             1072             CLR     A
+0128 F500     F     1073             MOV     flash_state,A
+                    1074     ;                             for(data_n=0;data_n<64;data_n++){
+                    1075                             ; SOURCE LINE # 224
+012A F500     F     1076             MOV     data_n,A
+012C F500     F     1077             MOV     data_n+01H,A
+012E                1078     ?C0150:
+                    1079     ;                                 eeprom_erase((u16)(data_addr+(u16)(data_n*512)));
+                    1080                             ; SOURCE LINE # 225
+012E 120000   F     1081             LCALL   L?0188
+                    1082     ;                             }
+                    1083                             ; SOURCE LINE # 226
+0131 0500     F     1084             INC     data_n+01H
+0133 E500     F     1085             MOV     A,data_n+01H
+0135 7002           1086             JNZ     ?C0176
+0137 0500     F     1087             INC     data_n
+0139                1088     ?C0176:
+0139 C3             1089             CLR     C
+013A 9440           1090             SUBB    A,#040H
+013C E500     F     1091             MOV     A,data_n
+013E 9400           1092             SUBB    A,#00H
+0140 40EC           1093             JC      ?C0150
+0142                1094     ?C0151:
+                    1095     ;                             uart_string("AIS");
+                    1096                             ; SOURCE LINE # 227
+0142 120000   F     1097             LCALL   L?0187
+                    1098     ;                         }
+                    1099                             ; SOURCE LINE # 228
+0145                1100     ?C0149:
+                    1101     ;                         if(flash_cmd==0xF7){//64K²Á³
+                    1102                             ; SOURCE LINE # 229
+0145 E500     F     1103             MOV     A,flash_cmd
+0147 64F7           1104             XRL     A,#0F7H
+0149 6003           1105             JZ      $ + 5H
+014B 020000   F     1106             LJMP    ?C0112
+                    1107     ;                             flash_state=0;
+A51 MACRO ASSEMBLER  MAIN                                                                 02/17/2025 18:03:46 PAGE    18
+
+                    1108                             ; SOURCE LINE # 230
+014E F500     F     1109             MOV     flash_state,A
+                    1110     ;                             for(data_n=0;data_n<128;data_n++){
+                    1111                             ; SOURCE LINE # 231
+0150 F500     F     1112             MOV     data_n,A
+0152 F500     F     1113             MOV     data_n+01H,A
+0154                1114     ?C0154:
+                    1115     ;                                 eeprom_erase((u16)(data_addr+(u16)(data_n*512)));
+                    1116                             ; SOURCE LINE # 232
+0154 120000   F     1117             LCALL   L?0189
+                    1118     ;                             }
+                    1119                             ; SOURCE LINE # 233
+0157 0500     F     1120             INC     data_n+01H
+0159 E500     F     1121             MOV     A,data_n+01H
+015B 7002           1122             JNZ     ?C0177
+015D 0500     F     1123             INC     data_n
+015F                1124     ?C0177:
+015F C3             1125             CLR     C
+0160 9480           1126             SUBB    A,#080H
+0162 E500     F     1127             MOV     A,data_n
+0164 9400           1128             SUBB    A,#00H
+0166 40EC           1129             JC      ?C0154
+0168                1130     ?C0155:
+                    1131     ;                             uart_string("AIS");
+                    1132                             ; SOURCE LINE # 234
+0168                1133     ?C0184:
+0168 120000   F     1134             LCALL   L?0187
+                    1135     ;                         }
+                    1136                             ; SOURCE LINE # 235
+                    1137     ;                     }
+                    1138                             ; SOURCE LINE # 236
+                    1139     ;                 }break;
+                    1140                             ; SOURCE LINE # 237
+016B 020000   F     1141             LJMP    ?C0112
+                    1142     ;                 case 8:case 9:case 10:case 11:{
+                    1143                             ; SOURCE LINE # 238
+016E                1144     ?C0160:
+                    1145     ;                     data_len<<=8;
+                    1146                             ; SOURCE LINE # 239
+016E E500     F     1147             MOV     A,data_len+01H
+0170 750000   F     1148             MOV     data_len+01H,#00H
+0173 F500     F     1149             MOV     data_len,A
+                    1150     ;                     data_len+=(u16)(UART1_GET_REG_SBUF);
+                    1151                             ; SOURCE LINE # 240
+0175 AF99           1152             MOV     R7,SBUF
+0177 EF             1153             MOV     A,R7
+0178 2500     F     1154             ADD     A,data_len+01H
+017A F500     F     1155             MOV     data_len+01H,A
+017C E4             1156             CLR     A
+017D 3500     F     1157             ADDC    A,data_len
+017F F500     F     1158             MOV     data_len,A
+                    1159     ;                     flash_state++;
+                    1160                             ; SOURCE LINE # 241
+0181 0500     F     1161             INC     flash_state
+                    1162     ;                     if(flash_state==12){
+                    1163                             ; SOURCE LINE # 242
+0183 E500     F     1164             MOV     A,flash_state
+0185 640C           1165             XRL     A,#0CH
+0187 6003           1166             JZ      $ + 5H
+0189 020000   F     1167             LJMP    ?C0112
+                    1168     ;                         if(flash_cmd==0xF2){//¶ÁÈ¡Ê¾Ý
+                    1169                             ; SOURCE LINE # 243
+018C E500     F     1170             MOV     A,flash_cmd
+018E 64F2           1171             XRL     A,#0F2H
+0190 702D           1172             JNZ     ?C0162
+                    1173     ;                             flash_state=0;
+A51 MACRO ASSEMBLER  MAIN                                                                 02/17/2025 18:03:46 PAGE    19
+
+                    1174                             ; SOURCE LINE # 244
+                    1175     ;                             uart_string("AIS");
+                    1176                             ; SOURCE LINE # 245
+0192 120000   F     1177             LCALL   L?0186
+                    1178     ;                             for(data_n=0;data_n<data_len;data_n++){
+                    1179                             ; SOURCE LINE # 246
+0195 E4             1180             CLR     A
+0196 F500     F     1181             MOV     data_n,A
+0198 F500     F     1182             MOV     data_n+01H,A
+019A                1183     ?C0163:
+019A C3             1184             CLR     C
+019B E500     F     1185             MOV     A,data_n+01H
+019D 9500     F     1186             SUBB    A,data_len+01H
+019F E500     F     1187             MOV     A,data_n
+01A1 9500     F     1188             SUBB    A,data_len
+01A3 501A           1189             JNC     ?C0162
+                    1190     ;                                 uart_char(eeprom_read(data_addr+data_n));
+                    1191                             ; SOURCE LINE # 247
+01A5 E500     F     1192             MOV     A,data_addr+01H
+01A7 2500     F     1193             ADD     A,data_n+01H
+01A9 FF             1194             MOV     R7,A
+01AA E500     F     1195             MOV     A,data_addr
+01AC 3500     F     1196             ADDC    A,data_n
+01AE FE             1197             MOV     R6,A
+01AF 120000   F     1198             LCALL   _eeprom_read
+01B2 120000   F     1199             LCALL   _uart_char
+                    1200     ;                             }
+                    1201                             ; SOURCE LINE # 248
+01B5 0500     F     1202             INC     data_n+01H
+01B7 E500     F     1203             MOV     A,data_n+01H
+01B9 70DF           1204             JNZ     ?C0163
+01BB 0500     F     1205             INC     data_n
+01BD                1206     ?C0178:
+01BD 80DB           1207             SJMP    ?C0163
+                    1208     ;                         }
+                    1209                             ; SOURCE LINE # 249
+01BF                1210     ?C0162:
+                    1211     ;                         data_count=0;
+                    1212                             ; SOURCE LINE # 250
+01BF E4             1213             CLR     A
+01C0 F500     F     1214             MOV     data_count,A
+01C2 F500     F     1215             MOV     data_count+01H,A
+                    1216     ;                     }
+                    1217                             ; SOURCE LINE # 251
+                    1218     ;                 }break;
+                    1219                             ; SOURCE LINE # 252
+01C4 020000   F     1220             LJMP    ?C0112
+                    1221     ;                 case 12:{
+                    1222                             ; SOURCE LINE # 253
+01C7                1223     ?C0166:
+                    1224     ;                     flash_buf[data_count]=UART1_GET_REG_SBUF;
+                    1225                             ; SOURCE LINE # 254
+01C7 7400     F     1226             MOV     A,#LOW (flash_buf)
+01C9 2500     F     1227             ADD     A,data_count+01H
+01CB F582           1228             MOV     DPL,A
+01CD 7400     F     1229             MOV     A,#HIGH (flash_buf)
+01CF 3500     F     1230             ADDC    A,data_count
+01D1 F583           1231             MOV     DPH,A
+01D3 E599           1232             MOV     A,SBUF
+01D5 F0             1233             MOVX    @DPTR,A
+                    1234     ;                     data_count++;
+                    1235                             ; SOURCE LINE # 255
+01D6 0500     F     1236             INC     data_count+01H
+01D8 E500     F     1237             MOV     A,data_count+01H
+01DA 7002           1238             JNZ     ?C0179
+01DC 0500     F     1239             INC     data_count
+A51 MACRO ASSEMBLER  MAIN                                                                 02/17/2025 18:03:46 PAGE    20
+
+01DE                1240     ?C0179:
+                    1241     ;                     if(data_count==data_len){//±à³ÌÊ¾Ý
+                    1242                             ; SOURCE LINE # 256
+01DE 6500     F     1243             XRL     A,data_len+01H
+01E0 7004           1244             JNZ     ?C0180
+01E2 E500     F     1245             MOV     A,data_count
+01E4 6500     F     1246             XRL     A,data_len
+01E6                1247     ?C0180:
+01E6 6003           1248             JZ      $ + 5H
+01E8 020000   F     1249             LJMP    ?C0112
+                    1250     ;                         flash_state=0;
+                    1251                             ; SOURCE LINE # 257
+01EB F500     F     1252             MOV     flash_state,A
+                    1253     ;                         for(data_n=0;data_n<data_len;data_n++){
+                    1254                             ; SOURCE LINE # 258
+01ED F500     F     1255             MOV     data_n,A
+01EF F500     F     1256             MOV     data_n+01H,A
+01F1                1257     ?C0168:
+01F1 C3             1258             CLR     C
+01F2 E500     F     1259             MOV     A,data_n+01H
+01F4 9500     F     1260             SUBB    A,data_len+01H
+01F6 E500     F     1261             MOV     A,data_n
+01F8 9500     F     1262             SUBB    A,data_len
+01FA 5025           1263             JNC     ?C0169
+                    1264     ;                             eeprom_write(data_addr+data_n,flash_buf[data_n]);
+                    1265                             ; SOURCE LINE # 259
+01FC E500     F     1266             MOV     A,data_addr+01H
+01FE 2500     F     1267             ADD     A,data_n+01H
+0200 FF             1268             MOV     R7,A
+0201 E500     F     1269             MOV     A,data_addr
+0203 3500     F     1270             ADDC    A,data_n
+0205 FE             1271             MOV     R6,A
+0206 7400     F     1272             MOV     A,#LOW (flash_buf)
+0208 2500     F     1273             ADD     A,data_n+01H
+020A F582           1274             MOV     DPL,A
+020C 7400     F     1275             MOV     A,#HIGH (flash_buf)
+020E 3500     F     1276             ADDC    A,data_n
+0210 F583           1277             MOV     DPH,A
+0212 E0             1278             MOVX    A,@DPTR
+0213 FD             1279             MOV     R5,A
+0214 120000   F     1280             LCALL   _eeprom_write
+                    1281     ;                         }
+                    1282                             ; SOURCE LINE # 260
+0217 0500     F     1283             INC     data_n+01H
+0219 E500     F     1284             MOV     A,data_n+01H
+021B 70D4           1285             JNZ     ?C0168
+021D 0500     F     1286             INC     data_n
+021F                1287     ?C0181:
+021F 80D0           1288             SJMP    ?C0168
+0221                1289     ?C0169:
+                    1290     ;                         uart_string("AIS");
+                    1291                             ; SOURCE LINE # 261
+0221 120000   F     1292             LCALL   L?0187
+                    1293     ;                     }
+                    1294                             ; SOURCE LINE # 262
+                    1295     ;                 }break;
+                    1296                             ; SOURCE LINE # 263
+0224 020000   F     1297             LJMP    ?C0112
+                    1298     ; END OF main
+                    1299     
+                    1300             END
+A51 MACRO ASSEMBLER  MAIN                                                                 02/17/2025 18:03:46 PAGE    21
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E                 T Y P E  V A L U E   ATTRIBUTES
+
+?C0023 . . . . . . . .  C ADDR   001AH   R   SEG=?PR?_EEPROM_ERASE?MAIN
+?C0024 . . . . . . . .  C ADDR   0041H   R   SEG=?PR?_EEPROM_ERASE?MAIN
+?C0028 . . . . . . . .  C ADDR   0027H   R   SEG=?PR?_EEPROM_ERASE?MAIN
+?C0038 . . . . . . . .  C ADDR   000BH   R   SEG=?PR?_EEPROM_WRITE?MAIN
+?C0039 . . . . . . . .  C ADDR   0036H   R   SEG=?PR?_EEPROM_WRITE?MAIN
+?C0043 . . . . . . . .  C ADDR   0018H   R   SEG=?PR?_EEPROM_WRITE?MAIN
+?C0056 . . . . . . . .  C ADDR   000EH   R   SEG=?PR?_EEPROM_READ?MAIN
+?C0057 . . . . . . . .  C ADDR   0037H   R   SEG=?PR?_EEPROM_READ?MAIN
+?C0061 . . . . . . . .  C ADDR   001BH   R   SEG=?PR?_EEPROM_READ?MAIN
+?C0099 . . . . . . . .  C ADDR   0002H   R   SEG=?PR?_UART_CHAR?MAIN
+?C0105 . . . . . . . .  C ADDR   0014H   R   SEG=?PR?_UART_STRING?MAIN
+?C0107 . . . . . . . .  C ADDR   003BH   R   SEG=?PR?_UART_STRING?MAIN
+?C0111 . . . . . . . .  C ADDR   0018H   R   SEG=?PR?MAIN?MAIN
+?C0112 . . . . . . . .  C ADDR   001EH   R   SEG=?PR?MAIN?MAIN
+?C0119 . . . . . . . .  C ADDR   0058H   R   SEG=?PR?MAIN?MAIN
+?C0121 . . . . . . . .  C ADDR   0062H   R   SEG=?PR?MAIN?MAIN
+?C0122 . . . . . . . .  C ADDR   006CH   R   SEG=?PR?MAIN?MAIN
+?C0124 . . . . . . . .  C ADDR   006EH   R   SEG=?PR?MAIN?MAIN
+?C0125 . . . . . . . .  C ADDR   0078H   R   SEG=?PR?MAIN?MAIN
+?C0127 . . . . . . . .  C ADDR   007DH   R   SEG=?PR?MAIN?MAIN
+?C0129 . . . . . . . .  C ADDR   0094H   R   SEG=?PR?MAIN?MAIN
+?C0130 . . . . . . . .  C ADDR   00A5H   R   SEG=?PR?MAIN?MAIN
+?C0131 . . . . . . . .  C ADDR   00B6H   R   SEG=?PR?MAIN?MAIN
+?C0132 . . . . . . . .  C ADDR   00BDH   R   SEG=?PR?MAIN?MAIN
+?C0133 . . . . . . . .  C ADDR   00D8H   R   SEG=?PR?MAIN?MAIN
+?C0139 . . . . . . . .  C ADDR   00DBH   R   SEG=?PR?MAIN?MAIN
+?C0143 . . . . . . . .  C ADDR   00E1H   R   SEG=?PR?MAIN?MAIN
+?C0145 . . . . . . . .  C ADDR   0122H   R   SEG=?PR?MAIN?MAIN
+?C0146 . . . . . . . .  C ADDR   010BH   R   SEG=?PR?MAIN?MAIN
+?C0147 . . . . . . . .  C ADDR   011FH   R   SEG=?PR?MAIN?MAIN
+?C0149 . . . . . . . .  C ADDR   0145H   R   SEG=?PR?MAIN?MAIN
+?C0150 . . . . . . . .  C ADDR   012EH   R   SEG=?PR?MAIN?MAIN
+?C0151 . . . . . . . .  C ADDR   0142H   R   SEG=?PR?MAIN?MAIN
+?C0154 . . . . . . . .  C ADDR   0154H   R   SEG=?PR?MAIN?MAIN
+?C0155 . . . . . . . .  C ADDR   0168H   R   SEG=?PR?MAIN?MAIN
+?C0160 . . . . . . . .  C ADDR   016EH   R   SEG=?PR?MAIN?MAIN
+?C0162 . . . . . . . .  C ADDR   01BFH   R   SEG=?PR?MAIN?MAIN
+?C0163 . . . . . . . .  C ADDR   019AH   R   SEG=?PR?MAIN?MAIN
+?C0166 . . . . . . . .  C ADDR   01C7H   R   SEG=?PR?MAIN?MAIN
+?C0168 . . . . . . . .  C ADDR   01F1H   R   SEG=?PR?MAIN?MAIN
+?C0169 . . . . . . . .  C ADDR   0221H   R   SEG=?PR?MAIN?MAIN
+?C0172 . . . . . . . .  C ADDR   0028H   R   SEG=?PR?MAIN?MAIN
+?C0173 . . . . . . . .  C ADDR   0031H   R   SEG=?PR?MAIN?MAIN
+?C0174 . . . . . . . .  C ADDR   00CFH   R   SEG=?PR?MAIN?MAIN
+?C0175 . . . . . . . .  C ADDR   0116H   R   SEG=?PR?MAIN?MAIN
+?C0176 . . . . . . . .  C ADDR   0139H   R   SEG=?PR?MAIN?MAIN
+?C0177 . . . . . . . .  C ADDR   015FH   R   SEG=?PR?MAIN?MAIN
+?C0178 . . . . . . . .  C ADDR   01BDH   R   SEG=?PR?MAIN?MAIN
+?C0179 . . . . . . . .  C ADDR   01DEH   R   SEG=?PR?MAIN?MAIN
+?C0180 . . . . . . . .  C ADDR   01E6H   R   SEG=?PR?MAIN?MAIN
+?C0181 . . . . . . . .  C ADDR   021FH   R   SEG=?PR?MAIN?MAIN
+?C0182 . . . . . . . .  C ADDR   0078H   R   SEG=?PR?MAIN?MAIN
+?C0183 . . . . . . . .  C ADDR   00B0H   R   SEG=?PR?MAIN?MAIN
+?C0184 . . . . . . . .  C ADDR   0168H   R   SEG=?PR?MAIN?MAIN
+?C?CLDPTR. . . . . . .  C ADDR   -----       EXT
+?C?ICALL . . . . . . .  C ADDR   -----       EXT
+?C?ILDIX . . . . . . .  C ADDR   -----       EXT
+?CO?MAIN . . . . . . .  C SEG    0004H       REL=UNIT
+?C_INITSEG . . . . . .  C SEG    0006H       REL=UNIT
+?C_STARTUP . . . . . .  C ADDR   -----       EXT
+A51 MACRO ASSEMBLER  MAIN                                                                 02/17/2025 18:03:46 PAGE    22
+
+?DT?MAIN . . . . . . .  D SEG    000AH       REL=UNIT
+?PR?EEPROM_INIT?MAIN .  C SEG    0006H       REL=UNIT
+?PR?EEPROM_OFF?MAIN. .  C SEG    000EH       REL=UNIT
+?PR?IO_INIT?MAIN . . .  C SEG    0007H       REL=UNIT
+?PR?MAIN?MAIN. . . . .  C SEG    0227H       REL=UNIT
+?PR?UART_INIT?MAIN . .  C SEG    0020H       REL=UNIT
+?PR?VALUE_INIT?MAIN. .  C SEG    0006H       REL=UNIT
+?PR?_EEPROM_ERASE?MAIN  C SEG    0042H       REL=UNIT
+?PR?_EEPROM_READ?MAIN.  C SEG    0038H       REL=UNIT
+?PR?_EEPROM_WRITE?MAIN  C SEG    0037H       REL=UNIT
+?PR?_UART_CHAR?MAIN. .  C SEG    0008H       REL=UNIT
+?PR?_UART_STRING?MAIN.  C SEG    003CH       REL=UNIT
+?SC_0. . . . . . . . .  C ADDR   0000H   R   SEG=?CO?MAIN
+?XD?MAIN . . . . . . .  X SEG    0103H       REL=UNIT
+?XD?_UART_STRING?MAIN.  X SEG    0003H       REL=UNIT
+?_UART_STRING?BYTE . .  X ADDR   0000H   R   SEG=?XD?_UART_STRING?MAIN
+AC . . . . . . . . . .  B ADDR   00D0H.6 A   
+ACC. . . . . . . . . .  D ADDR   00E0H   A   
+ADC_CFG. . . . . . . .  D ADDR   00DEH   A   
+ADC_CONTR. . . . . . .  D ADDR   00BCH   A   
+ADC_RES. . . . . . . .  D ADDR   00BDH   A   
+ADC_RESL . . . . . . .  D ADDR   00BEH   A   
+AR5. . . . . . . . . .  D ADDR   0005H   A   
+AUXINTIF . . . . . . .  D ADDR   00EFH   A   
+AUXR . . . . . . . . .  D ADDR   008EH   A   
+B. . . . . . . . . . .  D ADDR   00F0H   A   
+BUS_SPEED. . . . . . .  D ADDR   00A1H   A   
+CCAP0H . . . . . . . .  D ADDR   00FAH   A   
+CCAP0L . . . . . . . .  D ADDR   00EAH   A   
+CCAP1H . . . . . . . .  D ADDR   00FBH   A   
+CCAP1L . . . . . . . .  D ADDR   00EBH   A   
+CCAP3H . . . . . . . .  D ADDR   00FDH   A   
+CCAP3L . . . . . . . .  D ADDR   00EDH   A   
+CCAPM0 . . . . . . . .  D ADDR   00DAH   A   
+CCAPM1 . . . . . . . .  D ADDR   00DBH   A   
+CCAPM3 . . . . . . . .  D ADDR   00DDH   A   
+CCF0 . . . . . . . . .  B ADDR   00D8H.0 A   
+CCF1 . . . . . . . . .  B ADDR   00D8H.1 A   
+CCF2 . . . . . . . . .  B ADDR   00D8H.2 A   
+CCF3 . . . . . . . . .  B ADDR   00D8H.3 A   
+CCON . . . . . . . . .  D ADDR   00D8H   A   
+CF . . . . . . . . . .  B ADDR   00D8H.7 A   
+CH . . . . . . . . . .  D ADDR   00F9H   A   
+CL . . . . . . . . . .  D ADDR   00E9H   A   
+CMOD . . . . . . . . .  D ADDR   00D9H   A   
+CMPCR1 . . . . . . . .  D ADDR   00E6H   A   
+CMPCR2 . . . . . . . .  D ADDR   00E7H   A   
+CR . . . . . . . . . .  B ADDR   00D8H.6 A   
+CY . . . . . . . . . .  B ADDR   00D0H.7 A   
+DATA_ADDR. . . . . . .  D ADDR   0001H   R   SEG=?DT?MAIN
+DATA_COUNT . . . . . .  D ADDR   0004H   R   SEG=?DT?MAIN
+DATA_LEN . . . . . . .  D ADDR   0006H   R   SEG=?DT?MAIN
+DATA_N . . . . . . . .  D ADDR   0008H   R   SEG=?DT?MAIN
+DPH. . . . . . . . . .  D ADDR   0083H   A   
+DPH1 . . . . . . . . .  D ADDR   00E5H   A   
+DPL. . . . . . . . . .  D ADDR   0082H   A   
+DPL1 . . . . . . . . .  D ADDR   00E4H   A   
+DPS. . . . . . . . . .  D ADDR   00E3H   A   
+EA . . . . . . . . . .  B ADDR   00A8H.7 A   
+EADC . . . . . . . . .  B ADDR   00A8H.5 A   
+EEPROM_INIT. . . . . .  C ADDR   0000H   R   SEG=?PR?EEPROM_INIT?MAIN
+EEPROM_OFF . . . . . .  C ADDR   0000H   R   SEG=?PR?EEPROM_OFF?MAIN
+ELVD . . . . . . . . .  B ADDR   00A8H.6 A   
+ES . . . . . . . . . .  B ADDR   00A8H.4 A   
+ET0. . . . . . . . . .  B ADDR   00A8H.1 A   
+ET1. . . . . . . . . .  B ADDR   00A8H.3 A   
+A51 MACRO ASSEMBLER  MAIN                                                                 02/17/2025 18:03:46 PAGE    23
+
+EX0. . . . . . . . . .  B ADDR   00A8H.0 A   
+EX1. . . . . . . . . .  B ADDR   00A8H.2 A   
+F0 . . . . . . . . . .  B ADDR   00D0H.5 A   
+FLASH_BUF. . . . . . .  X ADDR   0000H   R   SEG=?XD?MAIN
+FLASH_CMD. . . . . . .  D ADDR   0003H   R   SEG=?DT?MAIN
+FLASH_STATE. . . . . .  D ADDR   0000H   R   SEG=?DT?MAIN
+IAP_ADDRH. . . . . . .  D ADDR   00C3H   A   
+IAP_ADDRL. . . . . . .  D ADDR   00C4H   A   
+IAP_CMD. . . . . . . .  D ADDR   00C5H   A   
+IAP_CONTR. . . . . . .  D ADDR   00C7H   A   
+IAP_DATA . . . . . . .  D ADDR   00C2H   A   
+IAP_TPS. . . . . . . .  D ADDR   00F5H   A   
+IAP_TRIG . . . . . . .  D ADDR   00C6H   A   
+IE . . . . . . . . . .  D ADDR   00A8H   A   
+IE0. . . . . . . . . .  B ADDR   0088H.1 A   
+IE1. . . . . . . . . .  B ADDR   0088H.3 A   
+IE2. . . . . . . . . .  D ADDR   00AFH   A   
+INTCLKO. . . . . . . .  D ADDR   008FH   A   
+IO_INIT. . . . . . . .  C ADDR   0000H   R   SEG=?PR?IO_INIT?MAIN
+IP . . . . . . . . . .  D ADDR   00B8H   A   
+IP2. . . . . . . . . .  D ADDR   00B5H   A   
+IP2H . . . . . . . . .  D ADDR   00B6H   A   
+IP3. . . . . . . . . .  D ADDR   00DFH   A   
+IP3H . . . . . . . . .  D ADDR   00EEH   A   
+IPH. . . . . . . . . .  D ADDR   00B7H   A   
+IRCBAND. . . . . . . .  D ADDR   009DH   A   
+IRTRIM . . . . . . . .  D ADDR   009FH   A   
+IT0. . . . . . . . . .  B ADDR   0088H.0 A   
+IT1. . . . . . . . . .  B ADDR   0088H.2 A   
+JMP_APP. . . . . . . .  X ADDR   0100H   R   SEG=?XD?MAIN
+L?0185 . . . . . . . .  C ADDR   0000H   R   SEG=?PR?_UART_STRING?MAIN
+L?0186 . . . . . . . .  C ADDR   0001H   R   SEG=?PR?_UART_STRING?MAIN
+L?0187 . . . . . . . .  C ADDR   0003H   R   SEG=?PR?_UART_STRING?MAIN
+L?0188 . . . . . . . .  C ADDR   0000H   R   SEG=?PR?_EEPROM_ERASE?MAIN
+L?0189 . . . . . . . .  C ADDR   0000H   R   SEG=?PR?_EEPROM_ERASE?MAIN
+LIRTRIM. . . . . . . .  D ADDR   009EH   A   
+MAIN . . . . . . . . .  C ADDR   0000H   R   SEG=?PR?MAIN?MAIN
+OV . . . . . . . . . .  B ADDR   00D0H.2 A   
+P. . . . . . . . . . .  B ADDR   00D0H.0 A   
+P0 . . . . . . . . . .  D ADDR   0080H   A   
+P00. . . . . . . . . .  B ADDR   0080H.0 A   
+P01. . . . . . . . . .  B ADDR   0080H.1 A   
+P02. . . . . . . . . .  B ADDR   0080H.2 A   
+P03. . . . . . . . . .  B ADDR   0080H.3 A   
+P04. . . . . . . . . .  B ADDR   0080H.4 A   
+P05. . . . . . . . . .  B ADDR   0080H.5 A   
+P06. . . . . . . . . .  B ADDR   0080H.6 A   
+P07. . . . . . . . . .  B ADDR   0080H.7 A   
+P0M0 . . . . . . . . .  D ADDR   0094H   A   
+P0M1 . . . . . . . . .  D ADDR   0093H   A   
+P1 . . . . . . . . . .  D ADDR   0090H   A   
+P10. . . . . . . . . .  B ADDR   0090H.0 A   
+P11. . . . . . . . . .  B ADDR   0090H.1 A   
+P12. . . . . . . . . .  B ADDR   0090H.2 A   
+P13. . . . . . . . . .  B ADDR   0090H.3 A   
+P14. . . . . . . . . .  B ADDR   0090H.4 A   
+P15. . . . . . . . . .  B ADDR   0090H.5 A   
+P16. . . . . . . . . .  B ADDR   0090H.6 A   
+P17. . . . . . . . . .  B ADDR   0090H.7 A   
+P1M0 . . . . . . . . .  D ADDR   0092H   A   
+P1M1 . . . . . . . . .  D ADDR   0091H   A   
+P2 . . . . . . . . . .  D ADDR   00A0H   A   
+P20. . . . . . . . . .  B ADDR   00A0H.0 A   
+P21. . . . . . . . . .  B ADDR   00A0H.1 A   
+P22. . . . . . . . . .  B ADDR   00A0H.2 A   
+P23. . . . . . . . . .  B ADDR   00A0H.3 A   
+A51 MACRO ASSEMBLER  MAIN                                                                 02/17/2025 18:03:46 PAGE    24
+
+P24. . . . . . . . . .  B ADDR   00A0H.4 A   
+P25. . . . . . . . . .  B ADDR   00A0H.5 A   
+P26. . . . . . . . . .  B ADDR   00A0H.6 A   
+P27. . . . . . . . . .  B ADDR   00A0H.7 A   
+P2M0 . . . . . . . . .  D ADDR   0096H   A   
+P2M1 . . . . . . . . .  D ADDR   0095H   A   
+P3 . . . . . . . . . .  D ADDR   00B0H   A   
+P30. . . . . . . . . .  B ADDR   00B0H.0 A   
+P31. . . . . . . . . .  B ADDR   00B0H.1 A   
+P32. . . . . . . . . .  B ADDR   00B0H.2 A   
+P33. . . . . . . . . .  B ADDR   00B0H.3 A   
+P34. . . . . . . . . .  B ADDR   00B0H.4 A   
+P35. . . . . . . . . .  B ADDR   00B0H.5 A   
+P36. . . . . . . . . .  B ADDR   00B0H.6 A   
+P37. . . . . . . . . .  B ADDR   00B0H.7 A   
+P3M0 . . . . . . . . .  D ADDR   00B2H   A   
+P3M1 . . . . . . . . .  D ADDR   00B1H   A   
+P4 . . . . . . . . . .  D ADDR   00C0H   A   
+P40. . . . . . . . . .  B ADDR   00C0H.0 A   
+P41. . . . . . . . . .  B ADDR   00C0H.1 A   
+P42. . . . . . . . . .  B ADDR   00C0H.2 A   
+P43. . . . . . . . . .  B ADDR   00C0H.3 A   
+P44. . . . . . . . . .  B ADDR   00C0H.4 A   
+P45. . . . . . . . . .  B ADDR   00C0H.5 A   
+P46. . . . . . . . . .  B ADDR   00C0H.6 A   
+P47. . . . . . . . . .  B ADDR   00C0H.7 A   
+P4M0 . . . . . . . . .  D ADDR   00B4H   A   
+P4M1 . . . . . . . . .  D ADDR   00B3H   A   
+P5 . . . . . . . . . .  D ADDR   00C8H   A   
+P50. . . . . . . . . .  B ADDR   00C8H.0 A   
+P51. . . . . . . . . .  B ADDR   00C8H.1 A   
+P52. . . . . . . . . .  B ADDR   00C8H.2 A   
+P53. . . . . . . . . .  B ADDR   00C8H.3 A   
+P54. . . . . . . . . .  B ADDR   00C8H.4 A   
+P55. . . . . . . . . .  B ADDR   00C8H.5 A   
+P56. . . . . . . . . .  B ADDR   00C8H.6 A   
+P57. . . . . . . . . .  B ADDR   00C8H.7 A   
+P5M0 . . . . . . . . .  D ADDR   00CAH   A   
+P5M1 . . . . . . . . .  D ADDR   00C9H   A   
+P6 . . . . . . . . . .  D ADDR   00E8H   A   
+P60. . . . . . . . . .  B ADDR   00E8H.0 A   
+P61. . . . . . . . . .  B ADDR   00E8H.1 A   
+P62. . . . . . . . . .  B ADDR   00E8H.2 A   
+P63. . . . . . . . . .  B ADDR   00E8H.3 A   
+P64. . . . . . . . . .  B ADDR   00E8H.4 A   
+P65. . . . . . . . . .  B ADDR   00E8H.5 A   
+P66. . . . . . . . . .  B ADDR   00E8H.6 A   
+P67. . . . . . . . . .  B ADDR   00E8H.7 A   
+P6M0 . . . . . . . . .  D ADDR   00CCH   A   
+P6M1 . . . . . . . . .  D ADDR   00CBH   A   
+P7 . . . . . . . . . .  D ADDR   00F8H   A   
+P70. . . . . . . . . .  B ADDR   00F8H.0 A   
+P71. . . . . . . . . .  B ADDR   00F8H.1 A   
+P72. . . . . . . . . .  B ADDR   00F8H.2 A   
+P73. . . . . . . . . .  B ADDR   00F8H.3 A   
+P74. . . . . . . . . .  B ADDR   00F8H.4 A   
+P75. . . . . . . . . .  B ADDR   00F8H.5 A   
+P76. . . . . . . . . .  B ADDR   00F8H.6 A   
+P77. . . . . . . . . .  B ADDR   00F8H.7 A   
+P7M0 . . . . . . . . .  D ADDR   00E2H   A   
+P7M1 . . . . . . . . .  D ADDR   00E1H   A   
+PADC . . . . . . . . .  B ADDR   00B8H.5 A   
+PCA_PWM0 . . . . . . .  D ADDR   00F2H   A   
+PCA_PWM1 . . . . . . .  D ADDR   00F3H   A   
+PCON . . . . . . . . .  D ADDR   0087H   A   
+PLVD . . . . . . . . .  B ADDR   00B8H.6 A   
+A51 MACRO ASSEMBLER  MAIN                                                                 02/17/2025 18:03:46 PAGE    25
+
+PS . . . . . . . . . .  B ADDR   00B8H.4 A   
+PSW. . . . . . . . . .  D ADDR   00D0H   A   
+PT0. . . . . . . . . .  B ADDR   00B8H.1 A   
+PT1. . . . . . . . . .  B ADDR   00B8H.3 A   
+PX0. . . . . . . . . .  B ADDR   00B8H.0 A   
+PX1. . . . . . . . . .  B ADDR   00B8H.2 A   
+P_SW1. . . . . . . . .  D ADDR   00A2H   A   
+P_SW2. . . . . . . . .  D ADDR   00BAH   A   
+RB8. . . . . . . . . .  B ADDR   0098H.2 A   
+REN. . . . . . . . . .  B ADDR   0098H.4 A   
+RI . . . . . . . . . .  B ADDR   0098H.0 A   
+RS0. . . . . . . . . .  B ADDR   00D0H.3 A   
+RS1. . . . . . . . . .  B ADDR   00D0H.4 A   
+RSTCFG . . . . . . . .  D ADDR   00FFH   A   
+S2BUF. . . . . . . . .  D ADDR   009BH   A   
+S2CON. . . . . . . . .  D ADDR   009AH   A   
+S3BUF. . . . . . . . .  D ADDR   00ADH   A   
+S3CON. . . . . . . . .  D ADDR   00ACH   A   
+S4BUF. . . . . . . . .  D ADDR   0085H   A   
+S4CON. . . . . . . . .  D ADDR   0084H   A   
+SADDR. . . . . . . . .  D ADDR   00A9H   A   
+SADEN. . . . . . . . .  D ADDR   00B9H   A   
+SBUF . . . . . . . . .  D ADDR   0099H   A   
+SCON . . . . . . . . .  D ADDR   0098H   A   
+SM0. . . . . . . . . .  B ADDR   0098H.7 A   
+SM1. . . . . . . . . .  B ADDR   0098H.6 A   
+SM2. . . . . . . . . .  B ADDR   0098H.5 A   
+SP . . . . . . . . . .  D ADDR   0081H   A   
+SPCTL. . . . . . . . .  D ADDR   00CEH   A   
+SPDAT. . . . . . . . .  D ADDR   00CFH   A   
+SPSTAT . . . . . . . .  D ADDR   00CDH   A   
+STR?946. . . . . . . .  X ADDR   0000H   R   SEG=?XD?_UART_STRING?MAIN
+T2H. . . . . . . . . .  D ADDR   00D6H   A   
+T2L. . . . . . . . . .  D ADDR   00D7H   A   
+T3H. . . . . . . . . .  D ADDR   00D4H   A   
+T3L. . . . . . . . . .  D ADDR   00D5H   A   
+T4H. . . . . . . . . .  D ADDR   00D2H   A   
+T4L. . . . . . . . . .  D ADDR   00D3H   A   
+T4T3M. . . . . . . . .  D ADDR   00D1H   A   
+TA . . . . . . . . . .  D ADDR   00AEH   A   
+TB8. . . . . . . . . .  B ADDR   0098H.3 A   
+TCON . . . . . . . . .  D ADDR   0088H   A   
+TF0. . . . . . . . . .  B ADDR   0088H.5 A   
+TF1. . . . . . . . . .  B ADDR   0088H.7 A   
+TH0. . . . . . . . . .  D ADDR   008CH   A   
+TH1. . . . . . . . . .  D ADDR   008DH   A   
+TI . . . . . . . . . .  B ADDR   0098H.1 A   
+TL0. . . . . . . . . .  D ADDR   008AH   A   
+TL1. . . . . . . . . .  D ADDR   008BH   A   
+TMOD . . . . . . . . .  D ADDR   0089H   A   
+TR0. . . . . . . . . .  B ADDR   0088H.4 A   
+TR1. . . . . . . . . .  B ADDR   0088H.6 A   
+UART_INIT. . . . . . .  C ADDR   0000H   R   SEG=?PR?UART_INIT?MAIN
+USBADR . . . . . . . .  D ADDR   00FCH   A   
+USBCLK . . . . . . . .  D ADDR   00DCH   A   
+USBCON . . . . . . . .  D ADDR   00F4H   A   
+USBDAT . . . . . . . .  D ADDR   00ECH   A   
+VALUE_INIT . . . . . .  C ADDR   0000H   R   SEG=?PR?VALUE_INIT?MAIN
+VOCTRL . . . . . . . .  D ADDR   00BBH   A   
+WDT_CONTR. . . . . . .  D ADDR   00C1H   A   
+WKTC . . . . . . . . .  D ADDR   00AAH   A   
+WKTCH. . . . . . . . .  D ADDR   00ABH   A   
+WKTCL. . . . . . . . .  D ADDR   00AAH   A   
+_EEPROM_ERASE. . . . .  C ADDR   000FH   R   SEG=?PR?_EEPROM_ERASE?MAIN
+_EEPROM_READ . . . . .  C ADDR   0000H   R   SEG=?PR?_EEPROM_READ?MAIN
+_EEPROM_WRITE. . . . .  C ADDR   0000H   R   SEG=?PR?_EEPROM_WRITE?MAIN
+A51 MACRO ASSEMBLER  MAIN                                                                 02/17/2025 18:03:46 PAGE    26
+
+_UART_CHAR . . . . . .  C ADDR   0000H   R   SEG=?PR?_UART_CHAR?MAIN
+_UART_STRING . . . . .  C ADDR   0009H   R   SEG=?PR?_UART_STRING?MAIN
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

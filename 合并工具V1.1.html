@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>专业级固件合并工具</title>
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --success: #27ae60;
+            --convert: #f39c12;
+            --error: #e74c3c;
+            --background: #ecf0f1;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            margin: 0;
+            padding: 2rem;
+            background: var(--background);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            padding: 2rem;
+        }
+
+        .tool-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .tool-header h1 {
+            color: var(--primary);
+            margin: 0;
+            font-size: 2.2rem;
+        }
+
+        .file-section {
+            display: grid;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .file-card {
+            background: var(--background);
+            border-radius: 8px;
+            padding: 1.5rem;
+            transition: transform 0.2s;
+        }
+
+        .file-card:hover {
+            transform: translateY(-2px);
+        }
+
+        .file-controls {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .file-name {
+            flex: 1;
+            padding: 0.8rem;
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .btn {
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.2s;
+            min-width: 80px;
+        }
+
+        .btn-primary {
+            background: var(--secondary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #2980b9;
+        }
+
+        .btn-success {
+            background: var(--success);
+            color: white;
+        }
+
+        .btn-success:hover {
+            background: #219a52;
+        }
+
+        .btn-convert {
+            background: var(--convert);
+            color: white;
+        }
+
+        .btn-convert:hover {
+            background: #e67e22;
+        }
+
+        .status-area {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background: var(--background);
+            border-radius: 8px;
+            min-height: 60px;
+        }
+
+        #status-message {
+            color: var(--primary);
+            font-size: 0.95rem;
+        }
+
+        .progress-bar {
+            height: 6px;
+            background: #ddd;
+            border-radius: 3px;
+            overflow: hidden;
+            margin-top: 1rem;
+        }
+
+        .progress-fill {
+            width: 0%;
+            height: 100%;
+            background: var(--secondary);
+            transition: width 0.3s ease;
+        }
+
+        input[type="file"] {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="tool-header">
+            <h1>固件合并工具</h1>
+            <p>HEX文件处理和转换(BIN转换失败可以刷新重试)</p>
+        </div>
+
+        <div class="file-section">
+            <!-- BootLoader文件 -->
+            <div class="file-card">
+                <h3>BootLoader固件</h3>
+                <div class="file-controls">
+                    <span class="file-name" id="bootloader-name">未选择文件</span>
+                    <button class="btn btn-convert" onclick="convertFile('bootloader')">转BIN</button>
+                    <button class="btn btn-primary" onclick="document.getElementById('bootloader-input').click()">选HEX</button>
+                    <input type="file" id="bootloader-input" accept=".hex">
+                </div>
+            </div>
+
+            <!-- APP文件 -->
+            <div class="file-card">
+                <h3>APP固件</h3>
+                <div class="file-controls">
+                    <span class="file-name" id="app-name">未选择文件</span>
+                    <button class="btn btn-convert" onclick="convertFile('app')">转BIN</button>
+                    <button class="btn btn-primary" onclick="document.getElementById('app-input').click()">选HEX</button>
+                    <input type="file" id="app-input" accept=".hex">
+                </div>
+            </div>
+        </div>
+
+        <div class="action-area">
+            <button class="btn btn-success" onclick="startMerge()" style="width:100%;padding:1.2rem">
+                开始合并处理
+            </button>
+        </div>
+
+        <div class="status-area">
+            <div id="status-message">准备就绪</div>
+            <div class="progress-bar">
+                <div class="progress-fill"></div>
+            </div>
+        </div>
+    </div>
+
+<script>
+// 存储器配置
+const MEMORY_CONFIG = {
+    MAX_SIZE: 0x10000,      // 64KB
+    BOOT_OFFSET: 0x0000,    // BootLoader起始地址
+    BOOT_LENGTH: 0x0800,    // 2KB
+    APP_PART1_OFFSET: 0x0800, // APP第一部分起始
+    APP_PART1_LENGTH: 0x0200, // 512B
+    APP_PART2_OFFSET: 0x0A00  // APP第二部分起始
+};
+
+// 文件存储对象
+const selectedFiles = {
+    bootloader: null,
+    app: null
+};
+
+// DOM加载完成后初始化
+document.addEventListener('DOMContentLoaded', () => {
+    // 文件选择事件监听
+    const initFileInput = (id, type) => {
+        const input = document.getElementById(id);
+        input.addEventListener('change', e => {
+            const file = e.target.files[0];
+            if (!file) return;
+            
+            selectedFiles[type] = file;
+            document.getElementById(`${type}-name`).textContent = file.name;
+            updateUI();
+        });
+    };
+
+    initFileInput('bootloader-input', 'bootloader');
+    initFileInput('app-input', 'app');
+});
+
+// 更新界面状态
+function updateUI() {
+    const mergeBtn = document.querySelector('.btn-success');
+    mergeBtn.disabled = !(selectedFiles.bootloader && selectedFiles.app);
+}
+
+// 状态显示控制
+function updateStatus(text, isSuccess = false, isError = false) {
+    const statusEl = document.getElementById('status-message');
+    statusEl.textContent = text;
+    statusEl.style.color = isError ? '#e74c3c' : isSuccess ? '#27ae60' : '#2c3e50';
+}
+
+// 进度条控制
+function showProgress(percent) {
+    document.querySelector('.progress-fill').style.width = `${percent}%`;
+}
+
+// 增强版HEX解析器
+function hexToBin(hexString) {
+    let minAddress = Infinity;
+    let maxAddress = -Infinity;
+    let extAddress = 0;
+    const segments = [];
+
+    // 第一遍扫描：确定地址范围
+    hexString.split('\n').forEach(line => {
+        if(line[0] !== ':' || line.length < 11) return;
+
+        const byteCount = parseInt(line.substr(1, 2), 16);
+        const address = parseInt(line.substr(3, 4), 16) + extAddress;
+        const recordType = parseInt(line.substr(7, 2), 16);
+
+        if(recordType === 0x00) { // 数据记录
+            const start = address;
+            const end = address + byteCount - 1;
+            minAddress = Math.min(minAddress, start);
+            maxAddress = Math.max(maxAddress, end);
+            segments.push({start, end});
+        } else if(recordType === 0x04) { // 扩展地址
+            extAddress = parseInt(line.substr(9, 4), 16) << 16;
+        }
+    });
+
+    // 检查地址有效性
+    if(minAddress === Infinity || maxAddress === -Infinity) {
+        throw new Error("未找到有效数据记录");
+    }
+
+    // 容量检查
+    if(maxAddress >= MEMORY_CONFIG.MAX_SIZE) {
+        throw new Error(`地址超出单片机容量（最大${MEMORY_CONFIG.MAX_SIZE}字节）`);
+    }
+
+    // 创建精确缓冲区
+    const bufferSize = maxAddress - minAddress + 1;
+    const binData = new Uint8Array(bufferSize).fill(0xFF);
+
+    // 第二遍扫描：填充数据
+    extAddress = 0;
+    hexString.split('\n').forEach(line => {
+        if(line[0] !== ':' || line.length < 11) return;
+
+        const byteCount = parseInt(line.substr(1, 2), 16);
+        const address = parseInt(line.substr(3, 4), 16) + extAddress;
+        const recordType = parseInt(line.substr(7, 2), 16);
+
+        if(recordType === 0x00) {
+            for(let i = 0; i < byteCount; i++) {
+                const pos = address + i - minAddress;
+                const value = parseInt(line.substr(9 + i * 2, 2), 16);
+                if(pos >= 0 && pos < binData.length) {
+                    binData[pos] = value;
+                }
+            }
+        } else if(recordType === 0x04) {
+            extAddress = parseInt(line.substr(9, 4), 16) << 16;
+        }
+    });
+
+    return {
+        data: binData,
+        baseAddress: minAddress,
+        maxAddress: maxAddress
+    };
+}
+
+// 文件读取函数
+async function readHexFile(file) {
+    return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = () => resolve(reader.result);
+        reader.onerror = reject;
+        reader.readAsText(file);
+    });
+}
+
+// 文件保存函数
+async function saveResult(data, filename) {
+    const blob = new Blob([data], {type: 'application/octet-stream'});
+    
+    try {
+        if(window.showSaveFilePicker) {
+            const handle = await window.showSaveFilePicker({
+                suggestedName: filename,
+                types: [{
+                    description: 'BIN文件',
+                    accept: {'application/octet-stream': ['.bin']}
+                }]
+            });
+            const writable = await handle.createWritable();
+            await writable.write(blob);
+            await writable.close();
+        } else {
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = filename;
+            link.click();
+            setTimeout(() => URL.revokeObjectURL(link.href), 100);
+        }
+    } catch(error) {
+        if(error.name !== 'AbortError') throw error;
+    }
+}
+
+// 独立转换功能
+async function convertFile(type) {
+    const file = selectedFiles[type];
+    if (!file) {
+        updateStatus(`请先选择${type === 'bootloader' ? 'BootLoader' : 'APP'}文件`, false, true);
+        return;
+    }
+
+    try {
+        showProgress(30);
+        updateStatus(`${type === 'bootloader' ? 'BootLoader' : 'APP'}转换中...`);
+        
+        const hexContent = await readHexFile(file);
+        const result = hexToBin(hexContent);
+        
+        // 容量二次验证
+        if(result.maxAddress >= MEMORY_CONFIG.MAX_SIZE) {
+            throw new Error(`转换后文件超出单片机容量`);
+        }
+
+        showProgress(80);
+        const fileName = `${file.name.replace(/\.hex$/i, '')}.bin`;
+        await saveResult(result.data, fileName);
+        
+        showProgress(100);
+        updateStatus(`${type === 'bootloader' ? 'BootLoader' : 'APP'}转换成功！`, true);
+    } catch(e) {
+        updateStatus(`${type === 'bootloader' ? 'BootLoader' : 'APP'}转换失败: ${e.message}`, false, true);
+    } finally {
+        setTimeout(() => showProgress(0), 1000);
+    }
+}
+
+// 智能合并功能（关键修复）
+async function startMerge() {
+    if (!selectedFiles.bootloader || !selectedFiles.app) {
+        updateStatus("请先选择两个文件", false, true);
+        return;
+    }
+
+    try {
+        showProgress(20);
+        updateStatus("正在解析文件...");
+        
+        const [bootContent, appContent] = await Promise.all([
+            readHexFile(selectedFiles.bootloader),
+            readHexFile(selectedFiles.app)
+        ]);
+
+        showProgress(40);
+        updateStatus("处理BootLoader...");
+        const bootResult = hexToBin(bootContent);
+        
+        // 验证BootLoader范围
+        if(bootResult.baseAddress < MEMORY_CONFIG.BOOT_OFFSET) {
+            throw new Error("BootLoader起始地址过低");
+        }
+        const bootEnd = bootResult.baseAddress + bootResult.data.length;
+        if(bootEnd > MEMORY_CONFIG.BOOT_OFFSET + MEMORY_CONFIG.BOOT_LENGTH) {
+            throw new Error(`BootLoader超出${MEMORY_CONFIG.BOOT_LENGTH}字节限制`);
+        }
+
+        showProgress(60);
+        updateStatus("处理APP固件...");
+        const appResult = hexToBin(appContent);
+        
+        // 创建合并缓冲区
+        const merged = new Uint8Array(MEMORY_CONFIG.MAX_SIZE).fill(0xFF);
+        
+        // 填充BootLoader
+        merged.set(bootResult.data, bootResult.baseAddress);
+
+        // 修复的APP第一部分处理（关键修改）
+        const appPart1Buffer = new Uint8Array(MEMORY_CONFIG.APP_PART1_LENGTH).fill(0xFF);
+        const appPart1Data = appResult.data.subarray(
+            0, // 强制从APP的0x0000开始
+            MEMORY_CONFIG.APP_PART1_LENGTH
+        );
+        appPart1Buffer.set(appPart1Data);
+        merged.set(appPart1Buffer, MEMORY_CONFIG.APP_PART1_OFFSET);
+
+        // 修复的APP第二部分处理
+        const appPart2Start = MEMORY_CONFIG.APP_PART2_OFFSET - appResult.baseAddress;
+        if(appPart2Start >= 0 && appPart2Start < appResult.data.length) {
+            const appPart2 = appResult.data.subarray(appPart2Start);
+            merged.set(appPart2, MEMORY_CONFIG.APP_PART2_OFFSET);
+        }
+
+        // 计算实际使用大小
+        const lastAddress = Math.max(
+            bootResult.baseAddress + bootResult.data.length,
+            MEMORY_CONFIG.APP_PART1_OFFSET + MEMORY_CONFIG.APP_PART1_LENGTH,
+            MEMORY_CONFIG.APP_PART2_OFFSET + (appResult.data.length - appPart2Start)
+        );
+
+        showProgress(90);
+        updateStatus("生成最终文件...");
+        await saveResult(merged.subarray(0, lastAddress), `merged_${Date.now()}.bin`);
+        
+        showProgress(100);
+        updateStatus("合并成功！", true);
+    } catch(e) {
+        updateStatus(`合并失败: ${e.message}`, false, true);
+    } finally {
+        setTimeout(() => showProgress(0), 1000);
+    }
+}
+</script>
+</body>
+</html>

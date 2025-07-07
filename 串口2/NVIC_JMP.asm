@@ -1,0 +1,260 @@
+;============= ÓÃ»§ÅäÖÃÇøÓò ==============
+BOOTLOADER_BASE_ADDR   EQU     0800H    ; ÖÐ¶ÏÌø×ª»ùµØÖ·£¨°´ÐèÐÞ¸Ä£©
+;=======================================
+;================ ÍêÕûÖÐ¶ÏÌø×ª±í ================
+; ÖÐ¶ÏºÅ0 (INT0)
+CSEG AT 0003H
+    LJMP BOOTLOADER_BASE_ADDR + 0003H
+
+; ÖÐ¶ÏºÅ1 (TIMER0)
+CSEG AT 000BH
+    LJMP BOOTLOADER_BASE_ADDR + 000BH
+
+; ÖÐ¶ÏºÅ2 (INT1)
+CSEG AT 0013H
+    LJMP BOOTLOADER_BASE_ADDR + 0013H
+
+; ÖÐ¶ÏºÅ3 (TIMER1)
+CSEG AT 001BH
+    LJMP BOOTLOADER_BASE_ADDR + 001BH
+
+; ÖÐ¶ÏºÅ4 (UART)
+CSEG AT 0023H
+    LJMP BOOTLOADER_BASE_ADDR + 0023H
+
+; ÖÐ¶ÏºÅ5 (TIMER2)
+CSEG AT 002BH
+    LJMP BOOTLOADER_BASE_ADDR + 002BH
+
+; ÖÐ¶ÏºÅ6 (Reserved/Custom)
+CSEG AT 0033H
+    LJMP BOOTLOADER_BASE_ADDR + 0033H
+
+; ÖÐ¶ÏºÅ7 (Reserved/Custom)
+CSEG AT 003BH
+    LJMP BOOTLOADER_BASE_ADDR + 003BH
+
+; ÖÐ¶ÏºÅ8 (Reserved/Custom)
+CSEG AT 0043H
+    LJMP BOOTLOADER_BASE_ADDR + 0043H
+
+; ÖÐ¶ÏºÅ9 (Reserved/Custom)
+CSEG AT 004BH
+    LJMP BOOTLOADER_BASE_ADDR + 004BH
+
+; ÖÐ¶ÏºÅ10 (Reserved/Custom)
+CSEG AT 0053H
+    LJMP BOOTLOADER_BASE_ADDR + 0053H
+
+; ÖÐ¶ÏºÅ11 (Reserved/Custom)
+CSEG AT 005BH
+    LJMP BOOTLOADER_BASE_ADDR + 005BH
+
+; ÖÐ¶ÏºÅ12 (Reserved/Custom)
+CSEG AT 0063H
+    LJMP BOOTLOADER_BASE_ADDR + 0063H
+
+; ÖÐ¶ÏºÅ13 (Reserved/Custom)
+CSEG AT 006BH
+    LJMP BOOTLOADER_BASE_ADDR + 006BH
+
+; ÖÐ¶ÏºÅ14 (Reserved/Custom)
+CSEG AT 0073H
+    LJMP BOOTLOADER_BASE_ADDR + 0073H
+
+; ÖÐ¶ÏºÅ15 (Reserved/Custom)
+CSEG AT 007BH
+    LJMP BOOTLOADER_BASE_ADDR + 007BH
+
+; ÖÐ¶ÏºÅ16 (Reserved/Custom)
+CSEG AT 0083H
+    LJMP BOOTLOADER_BASE_ADDR + 0083H
+
+; ÖÐ¶ÏºÅ17 (Reserved/Custom)
+CSEG AT 008BH
+    LJMP BOOTLOADER_BASE_ADDR + 008BH
+
+; ÖÐ¶ÏºÅ18 (Reserved/Custom)
+CSEG AT 0093H
+    LJMP BOOTLOADER_BASE_ADDR + 0093H
+
+; ÖÐ¶ÏºÅ19 (Reserved/Custom)
+CSEG AT 009BH
+    LJMP BOOTLOADER_BASE_ADDR + 009BH
+
+; ÖÐ¶ÏºÅ20 (Reserved/Custom)
+CSEG AT 00A3H
+    LJMP BOOTLOADER_BASE_ADDR + 00A3H
+
+; ÖÐ¶ÏºÅ21 (Reserved/Custom)
+CSEG AT 00ABH
+    LJMP BOOTLOADER_BASE_ADDR + 00ABH
+
+; ÖÐ¶ÏºÅ22 (Reserved/Custom)
+CSEG AT 00B3H
+    LJMP BOOTLOADER_BASE_ADDR + 00B3H
+
+; ÖÐ¶ÏºÅ23 (Reserved/Custom)
+CSEG AT 00BBH
+    LJMP BOOTLOADER_BASE_ADDR + 00BBH
+
+; ÖÐ¶ÏºÅ24 (Reserved/Custom)
+CSEG AT 00C3H
+    LJMP BOOTLOADER_BASE_ADDR + 00C3H
+
+; ÖÐ¶ÏºÅ25 (Reserved/Custom)
+CSEG AT 00CBH
+    LJMP BOOTLOADER_BASE_ADDR + 00CBH
+
+; ÖÐ¶ÏºÅ26 (Reserved/Custom)
+CSEG AT 00D3H
+    LJMP BOOTLOADER_BASE_ADDR + 00D3H
+
+; ÖÐ¶ÏºÅ27 (Reserved/Custom)
+CSEG AT 00DBH
+    LJMP BOOTLOADER_BASE_ADDR + 00DBH
+
+; ÖÐ¶ÏºÅ28 (Reserved/Custom)
+CSEG AT 00E3H
+    LJMP BOOTLOADER_BASE_ADDR + 00E3H
+
+; ÖÐ¶ÏºÅ29 (Reserved/Custom)
+CSEG AT 00EBH
+    LJMP BOOTLOADER_BASE_ADDR + 00EBH
+
+; ÖÐ¶ÏºÅ30 (Reserved/Custom)
+CSEG AT 00F3H
+    LJMP BOOTLOADER_BASE_ADDR + 00F3H
+
+; ÖÐ¶ÏºÅ31 (Reserved/Custom)
+CSEG AT 00FBH
+    LJMP BOOTLOADER_BASE_ADDR + 00FBH
+
+; ÖÐ¶ÏºÅ32 (Reserved/Custom)
+CSEG AT 0103H
+    LJMP BOOTLOADER_BASE_ADDR + 0103H
+
+; ÖÐ¶ÏºÅ33 (Reserved/Custom)
+CSEG AT 010BH
+    LJMP BOOTLOADER_BASE_ADDR + 010BH
+
+; ÖÐ¶ÏºÅ34 (Reserved/Custom)
+CSEG AT 0113H
+    LJMP BOOTLOADER_BASE_ADDR + 0113H
+
+; ÖÐ¶ÏºÅ35 (Reserved/Custom)
+CSEG AT 011BH
+    LJMP BOOTLOADER_BASE_ADDR + 011BH
+
+; ÖÐ¶ÏºÅ36 (Reserved/Custom)
+CSEG AT 0123H
+    LJMP BOOTLOADER_BASE_ADDR + 0123H
+
+; ÖÐ¶ÏºÅ37 (Reserved/Custom)
+CSEG AT 012BH
+    LJMP BOOTLOADER_BASE_ADDR + 012BH
+
+; ÖÐ¶ÏºÅ38 (Reserved/Custom)
+CSEG AT 0133H
+    LJMP BOOTLOADER_BASE_ADDR + 0133H
+
+; ÖÐ¶ÏºÅ39 (Reserved/Custom)
+CSEG AT 013BH
+    LJMP BOOTLOADER_BASE_ADDR + 013BH
+
+; ÖÐ¶ÏºÅ40 (Reserved/Custom)
+CSEG AT 0143H
+    LJMP BOOTLOADER_BASE_ADDR + 0143H
+
+; ÖÐ¶ÏºÅ41 (Reserved/Custom)
+CSEG AT 014BH
+    LJMP BOOTLOADER_BASE_ADDR + 014BH
+
+; ÖÐ¶ÏºÅ42 (Reserved/Custom)
+CSEG AT 0153H
+    LJMP BOOTLOADER_BASE_ADDR + 0153H
+
+; ÖÐ¶ÏºÅ43 (Reserved/Custom)
+CSEG AT 015BH
+    LJMP BOOTLOADER_BASE_ADDR + 015BH
+
+; ÖÐ¶ÏºÅ44 (Reserved/Custom)
+CSEG AT 0163H
+    LJMP BOOTLOADER_BASE_ADDR + 0163H
+
+; ÖÐ¶ÏºÅ45 (Reserved/Custom)
+CSEG AT 016BH
+    LJMP BOOTLOADER_BASE_ADDR + 016BH
+
+; ÖÐ¶ÏºÅ46 (Reserved/Custom)
+CSEG AT 0173H
+    LJMP BOOTLOADER_BASE_ADDR + 0173H
+
+; ÖÐ¶ÏºÅ47 (Reserved/Custom)
+CSEG AT 017BH
+    LJMP BOOTLOADER_BASE_ADDR + 017BH
+
+; ÖÐ¶ÏºÅ48 (Reserved/Custom)
+CSEG AT 0183H
+    LJMP BOOTLOADER_BASE_ADDR + 0183H
+
+; ÖÐ¶ÏºÅ49 (Reserved/Custom)
+CSEG AT 018BH
+    LJMP BOOTLOADER_BASE_ADDR + 018BH
+
+; ÖÐ¶ÏºÅ50 (Reserved/Custom)
+CSEG AT 0193H
+    LJMP BOOTLOADER_BASE_ADDR + 0193H
+
+; ÖÐ¶ÏºÅ51 (Reserved/Custom)
+CSEG AT 019BH
+    LJMP BOOTLOADER_BASE_ADDR + 019BH
+
+; ÖÐ¶ÏºÅ52 (Reserved/Custom)
+CSEG AT 01A3H
+    LJMP BOOTLOADER_BASE_ADDR + 01A3H
+
+; ÖÐ¶ÏºÅ53 (Reserved/Custom)
+CSEG AT 01ABH
+    LJMP BOOTLOADER_BASE_ADDR + 01ABH
+
+; ÖÐ¶ÏºÅ54 (Reserved/Custom)
+CSEG AT 01B3H
+    LJMP BOOTLOADER_BASE_ADDR + 01B3H
+
+; ÖÐ¶ÏºÅ55 (Reserved/Custom)
+CSEG AT 01BBH
+    LJMP BOOTLOADER_BASE_ADDR + 01BBH
+
+; ÖÐ¶ÏºÅ56 (Reserved/Custom)
+CSEG AT 01C3H
+    LJMP BOOTLOADER_BASE_ADDR + 01C3H
+
+; ÖÐ¶ÏºÅ57 (Reserved/Custom)
+CSEG AT 01CBH
+    LJMP BOOTLOADER_BASE_ADDR + 01CBH
+
+; ÖÐ¶ÏºÅ58 (Reserved/Custom)
+CSEG AT 01D3H
+    LJMP BOOTLOADER_BASE_ADDR + 01D3H
+
+; ÖÐ¶ÏºÅ59 (Reserved/Custom)
+CSEG AT 01DBH
+    LJMP BOOTLOADER_BASE_ADDR + 01DBH
+
+; ÖÐ¶ÏºÅ60 (Reserved/Custom)
+CSEG AT 01E3H
+    LJMP BOOTLOADER_BASE_ADDR + 01E3H
+
+; ÖÐ¶ÏºÅ61 (Reserved/Custom)
+CSEG AT 01EBH
+    LJMP BOOTLOADER_BASE_ADDR + 01EBH
+
+; ÖÐ¶ÏºÅ62 (Reserved/Custom)
+CSEG AT 01F3H
+    LJMP BOOTLOADER_BASE_ADDR + 01F3H
+
+; ÖÐ¶ÏºÅ63 (Reserved/Custom)
+CSEG AT 01FBH
+    LJMP BOOTLOADER_BASE_ADDR + 01FBH
+END

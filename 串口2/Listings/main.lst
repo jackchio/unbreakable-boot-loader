@@ -1,0 +1,512 @@
+C51 COMPILER V9.60.7.0   MAIN                                                              05/31/2025 10:50:12 PAGE 1   
+
+
+C51 COMPILER V9.60.7.0, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN .\Objects\main.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE main.c LARGE OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listing
+                    -s\main.lst) OBJECT(.\Objects\main.obj)
+
+line level    source
+
+   1          #include"ecbm_reg.h"
+   2          #include "intrins.h"    //µ¥Æ¬»úCÓïÑÔÊ¹ÓÃ»ã±àÖ¸ÁîµÄÍ·ÎÄ¼þ¡£
+   3          //-----------------ÒÔÏÂÊÇÍ¼ÐÎÉèÖÃ½çÃæ£¬¿ÉÔÚConfiguration Wizard½çÃæÉèÖÃ-----------------
+   4          //<<< Use Configuration Wizard in Context Menu >>>
+   5          //<o>ÏµÍ³Ê±ÖÓÆµÂÊÑ¡Ôñ
+   6          //<i>¶¨Òåµ¥Æ¬»úÔËÐÐµÄÊ±ÖÓÆµÂÊ£¨µ¥Î»Hz£©¡£
+   7          //<5529600UL => 5.5296M 
+   8          //<6000000UL => 6.0000M 
+   9          //<11059200UL=>11.0592M 
+  10          //<12000000UL=>12.0000M 
+  11          //<18432000UL=>18.4320M  
+  12          //<20000000UL=>20.0000M 
+  13          //<22118400UL=>22.1184M 
+  14          //<24000000UL=>24.0000M 
+  15          //<26000000UL=>26.0000M
+  16          //<27000000UL=>27.0000M
+  17          //<30000000UL=>30.0000M 
+  18          //<33000000UL=>33.0000M 
+  19          //<33177600UL=>33.1776M 
+  20          //<35000000UL=>35.0000M 
+  21          //<36864000UL=>36.8640M 
+  22          //<40000000UL=>40.0000M 
+  23          //<44236800UL=>44.2368M 
+  24          //<45000000UL=>45.0000M 
+  25          //<45158400UL=>45.1584M 
+  26          #define ECBM_SYSCLK_SETTING (11059200UL)
+  27          #if     (ECBM_SYSCLK_SETTING == 5529600UL)//¸ù¾ÝÏµÍ³Ê±ÖÓÀ´Ñ¡ÔñÏµÊý¡£
+              #   define ECBM_EEPROM_WAIT_TIME   (4)
+              #elif   (ECBM_SYSCLK_SETTING == 6000000UL)
+              #   define ECBM_EEPROM_WAIT_TIME   (4)
+              #elif   (ECBM_SYSCLK_SETTING == 11059200UL)
+  32          #   define ECBM_EEPROM_WAIT_TIME   (3)
+  33          #elif   (ECBM_SYSCLK_SETTING == 12000000UL)
+              #   define ECBM_EEPROM_WAIT_TIME   (3)
+              #elif   (ECBM_SYSCLK_SETTING == 18432000UL)
+              #   define ECBM_EEPROM_WAIT_TIME   (2)
+              #elif   (ECBM_SYSCLK_SETTING == 20000000UL)
+              #   define ECBM_EEPROM_WAIT_TIME   (2)
+              #elif   (ECBM_SYSCLK_SETTING == 22118400UL)
+              #   define ECBM_EEPROM_WAIT_TIME   (2)
+              #elif   (ECBM_SYSCLK_SETTING == 24000000UL)
+              #   define ECBM_EEPROM_WAIT_TIME   (1)
+              #elif   (ECBM_SYSCLK_SETTING == 26000000UL)
+              #   define ECBM_EEPROM_WAIT_TIME   (1)
+              #elif   (ECBM_SYSCLK_SETTING == 27000000UL)
+              #   define ECBM_EEPROM_WAIT_TIME   (1)
+              #elif   (ECBM_SYSCLK_SETTING == 30000000UL)
+              #   define ECBM_EEPROM_WAIT_TIME   (0)
+              #elif   (ECBM_SYSCLK_SETTING == 33000000UL)
+              #   define ECBM_EEPROM_WAIT_TIME   (0)
+              #elif   (ECBM_SYSCLK_SETTING == 33177600UL)
+              #   define ECBM_EEPROM_WAIT_TIME   (0)
+              #elif   (ECBM_SYSCLK_SETTING == 35000000UL)
+              #   define ECBM_EEPROM_WAIT_TIME   (0)
+C51 COMPILER V9.60.7.0   MAIN                                                              05/31/2025 10:50:12 PAGE 2   
+
+              #elif   (ECBM_SYSCLK_SETTING == 36864000UL)
+              #   define ECBM_EEPROM_WAIT_TIME   (0)
+              #elif   (ECBM_SYSCLK_SETTING == 40000000UL)
+              #   define ECBM_EEPROM_WAIT_TIME   (0)
+              #elif   (ECBM_SYSCLK_SETTING == 44236800UL)
+              #   define ECBM_EEPROM_WAIT_TIME   (0)
+              #elif   (ECBM_SYSCLK_SETTING == 45000000UL)
+              #   define ECBM_EEPROM_WAIT_TIME   (0)
+              #elif   (ECBM_SYSCLK_SETTING == 45158400UL)
+              #   define ECBM_EEPROM_WAIT_TIME   (0)
+              #endif
+  66          //<o>²¨ÌØÂÊ
+  67          //<600=>600 
+  68          //<1200=>1200 
+  69          //<2400=>2400 
+  70          //<4800=>4800 
+  71          //<9600=>9600 
+  72          //<14400=>14400 
+  73          //<19200=>19200 
+  74          //<28800=>28800 
+  75          //<38400=>38400 
+  76          //<57600=>57600 
+  77          //<115200=>115200
+  78          //<230400=>230400 
+  79          //<460800=>460800
+  80          #define ECBM_UART_BAUD_RATE (115200)
+  81          //<o>APPÇøµÄ´óÐ¡
+  82          //<i>µ¥Î»KB£¬¿É¸ù¾ÝÊµ¼ÊÇé¿öÐÞ¸Ä¡£
+  83          //<1-63>
+  84          #define APP_SIZE    (62)
+  85          #define EEPROM_SIZE_MAX (APP_SIZE*2)
+  86          //<q>¸´ÓÃ´®¿Ú¹¦ÄÜ
+  87          #define MUX_FUNCTION_UART (0)
+  88          //<e>485¿ØÖÆ¹¦ÄÜ
+  89          #define UART_485_EN (0)
+  90          //<i>½öÖ§³ÖRE¡¢DE½Åº¸ÔÚÒ»ÆðµÄÓÃ·¨¡£ÕâÊÇ×îÊ¡IOºÍÔª¼þµÄ½Ó·¨ÁË¡£
+  91          //<o>¿ØÖÆ½Å(RE¡¢DE)¶ÔÓ¦µÄport
+  92          //<0x80=>P0
+  93          //<0x90=>P1
+  94          //<0xA0=>P2
+  95          //<0xB0=>P3
+  96          //<0xC0=>P4
+  97          //<0xC8=>P5
+  98          //<0xE8=>P6
+  99          //<0xF8=>P7
+ 100          #define UART_485_PORT (0xB0)
+ 101          //<o>¿ØÖÆ½Å(RE¡¢DE)½Å¶ÔÓ¦µÄpin
+ 102          //<0x00=>0
+ 103          //<0x01=>1
+ 104          //<0x02=>2
+ 105          //<0x03=>3
+ 106          //<0x04=>4
+ 107          //<0x05=>5
+ 108          //<0x06=>6
+ 109          //<0x07=>7
+ 110          #define UART_485_PIN  (0x03)
+ 111          //</e>
+ 112          //<<< end of configuration section >>>
+ 113          //-----------------ÒÔÉÏÊÇÍ¼ÐÎÉèÖÃ½çÃæ£¬¿ÉÔÚConfiguration Wizard½çÃæÉèÖÃ-----------------
+ 114          /*-----------------------------------------BOOT½Å¶¨Òå-----------------------------------------*/
+ 115          #define BOOT_PIN        P35 //BOOT½ÅÉèÖÃÎªP3.5½Å,¡£
+ 116          #define BOOT_RUN_APP    (0) //BOOT½ÅÎªµÍµçÆ½µÄÊ±ºòÔËÐÐAPP¡£
+C51 COMPILER V9.60.7.0   MAIN                                                              05/31/2025 10:50:12 PAGE 3   
+
+ 117          #define BOOT_PIN_UPPULL do{P3PU=0x20;}while(0)//´ò¿ªBOOT½ÅµÄÉÏÀ­µç×è¡£
+ 118          #define BOOT_PIN_HIGHZ  do{P3PU=0x00;}while(0)//¹Ø±ÕBOOT½ÅµÄÉÏÀ­µç×è¡£
+ 119          /*-----------------------------------------APPÇø¶¨Òå-----------------------------------------*/
+ 120          #define APP_JMP_ADDR    (0x0800)//APP³ÌÐòÌø×ªµØÖ·¡£
+ 121          #define APP_ADDR        (APP_JMP_ADDR+0x0200)//APP±¾ÌåµÄÆðÊ¼µØÖ·¡£
+ 122          /*-----------------------------------------±äÁ¿¶¨Òå-----------------------------------------*/
+ 123          u8 xdata flash_buf[256];
+ 124          u8  data flash_state,flash_cmd;
+ 125          bit app_flag;
+ 126          u8  app_lock;
+ 127          u16 data data_addr,data_len,data_count,data_n,data_addr_ex,data_buf_point;
+ 128          #if (UART_485_EN)
+                  sbit UART_485_IO=(UART_485_PORT+UART_485_PIN);
+              #endif
+ 131          /*-------------------------------------------------------
+ 132          ±äÁ¿³õÊ¼»¯º¯Êý¡£
+ 133          -------------------------------------------------------*/
+ 134          void value_init(void){
+ 135   1          flash_state=0;//ÆäËû±äÁ¿»áÔÚÔËÐÐµÄÊ±ºò¸²¸Ç»òÇåÁã£¬¾Í²»ÓÃÔÚÕâÀïÇåÁãÁË¡£
+ 136   1          flash_cmd=0;
+ 137   1          data_buf_point=0;
+ 138   1      }
+ 139          /*-------------------------------------------------------
+ 140          IO³õÊ¼»¯º¯Êý¡£
+ 141          -------------------------------------------------------*/
+ 142          void io_init(void){
+ 143   1          BOOT_PIN_UPPULL;//BOOT_IO´ò¿ªÉÏÀ­£¬·ÀÖ¹¸ß×èÌ¬ÏÂ¶Áµ½µÄµçÆ½²»ÎÈ¶¨¡£
+ 144   1      }
+ 145          /*-------------------------------------------------------
+ 146          IO»¹Ô­º¯Êý¡£
+ 147          -------------------------------------------------------*/
+ 148          void io_reset(void){
+ 149   1          BOOT_PIN_HIGHZ;//BOOT_IO¹Ø±ÕÉÏÀ­£¬·ÀÖ¹¸ÉÈÅµ½APPµÄÔËÐÐ¡£
+ 150   1      }
+ 151          /*-------------------------------------------------------
+ 152          APPÌø×ªº¯Êý¡£
+ 153          -------------------------------------------------------*/
+ 154          void (*jmp_app)(void)=(void(*)(void))(APP_JMP_ADDR);
+ 155          #if (1)//eeprom²¿·ÖÕÛµþ
+ 156          /*-------------------------------------------------------
+ 157          eeprom¹Ø±Õº¯Êý¡£
+ 158          -------------------------------------------------------*/
+ 159          void eeprom_off(void){
+ 160   1          IAP_SET_REG_CONTR(0);       //¹Ø±ÕIAP¹¦ÄÜ¡£
+ 161   1          IAP_CMD_NOP;                //Çå³ýÃüÁî¼Ä´æÆ÷¡£
+ 162   1          IAP_TRIG_CLS;               //Çå³ý´¥·¢¼Ä´æÆ÷¡£
+ 163   1          IAP_SET_REG_ADDR_H8(0xff);  //½«µØÖ·ÉèÖÃµ½·ÇIAPÇøÓò¡£
+ 164   1          IAP_SET_REG_ADDR_L8(0xff);  //½«µØÖ·ÉèÖÃµ½·ÇIAPÇøÓò¡£
+ 165   1      }
+ 166          /*-------------------------------------------------------
+ 167          eeprom³õÊ¼»¯º¯Êý¡£
+ 168          -------------------------------------------------------*/
+ 169          void eeprom_init(void){
+ 170   1          IAP_TPS=ECBM_SYSCLK_SETTING/1000000;//STC8GºÍSTC8HµÄIAPÊ±ÖÓÆµÂÊÉèÖÃ¡£
+ 171   1          eeprom_off();//¹Ø±Õeeprom£¬µÈÐèÒªÊ±ÔÙ¿ªÆô¡£
+ 172   1      }
+ 173          /*-------------------------------------------------------
+ 174          eeprom²Á³ýº¯Êý¡£
+ 175          -------------------------------------------------------*/
+ 176          void eeprom_erase(u16 addr){
+ 177   1          if(data_addr_ex)return;//Èç¹ûµØÖ·³¬¹ý64KB£¬Ö±½ÓÍË³ö¡£
+ 178   1          if((addr>=0x0200)&&(addr<APP_ADDR))return;//Èç¹ûµØÖ·ÔÚBOOTÇø£¬Ö±½ÓÍË³ö¡£
+C51 COMPILER V9.60.7.0   MAIN                                                              05/31/2025 10:50:12 PAGE 4   
+
+ 179   1          if(addr>=APP_ADDR)addr-=APP_JMP_ADDR;//Èç¹ûµØÖ·ÔÚÕý³£µÄÇø¼ä£¬Ôò¼õÈ¥IAPµÄÆ«ÒÆÁ¿µÃµ½ÕæÕýµÄµØÖ·¡£
+ 180   1          IAP_SET_REG_CONTR(ECBM_EEPROM_WAIT_TIME|IAP_EN);  //Ê¹ÄÜIAP
+ 181   1          IAP_CMD_ERASE;              //ÉèÖÃIAP²Á³ýÃüÁî
+ 182   1          IAP_SET_REG_ADDR_HL(addr);  //ÉèÖÃIAPµØÖ·
+ 183   1          IAP_TRIG_ON;                //´¥·¢ÃüÁî
+ 184   1          _nop_();_nop_();_nop_();_nop_();_nop_();_nop_();//ÉÔÉÔµÈ´ýÒ»ÏÂ
+ 185   1          _nop_();_nop_();_nop_();_nop_();_nop_();_nop_();//ÉÔÉÔµÈ´ýÒ»ÏÂ
+ 186   1          _nop_();_nop_();_nop_();_nop_();_nop_();_nop_();//ÉÔÉÔµÈ´ýÒ»ÏÂ
+ 187   1          eeprom_off();               //¹Ø±ÕIAP¹¦ÄÜ
+ 188   1      }
+ 189          /*-------------------------------------------------------
+ 190          eepromÐ´º¯Êý¡£
+ 191          -------------------------------------------------------*/
+ 192          void eeprom_write(u16 addr,u8 dat){
+ 193   1          if(data_addr_ex)return;//Èç¹ûµØÖ·³¬¹ý64KB£¬Ö±½ÓÍË³ö¡£
+ 194   1          if((addr>=0x0200)&&(addr<APP_ADDR))return;//Èç¹ûµØÖ·ÔÚBOOTÇø£¬Ö±½ÓÍË³ö¡£
+ 195   1          if(addr>=APP_ADDR)addr-=APP_JMP_ADDR;//Èç¹ûµØÖ·ÔÚÕý³£µÄÇø¼ä£¬Ôò¼õÈ¥IAPµÄÆ«ÒÆÁ¿µÃµ½ÕæÕýµÄµØÖ·¡£
+ 196   1          IAP_SET_REG_CONTR(ECBM_EEPROM_WAIT_TIME|IAP_EN);  //Ê¹ÄÜIAP
+ 197   1          IAP_CMD_WRITE;              //ÉèÖÃIAPÐ´ÃüÁî
+ 198   1          IAP_SET_REG_ADDR_HL(addr);  //ÉèÖÃIAPµØÖ·
+ 199   1          IAP_SET_REG_DATA(dat);      //Ð´IAPÊý¾Ý
+ 200   1          IAP_TRIG_ON;                //´¥·¢ÃüÁî
+ 201   1          _nop_();_nop_();_nop_();_nop_();_nop_();_nop_();//ÉÔÉÔµÈ´ýÒ»ÏÂ
+ 202   1          _nop_();_nop_();_nop_();_nop_();_nop_();_nop_();//ÉÔÉÔµÈ´ýÒ»ÏÂ
+ 203   1          _nop_();_nop_();_nop_();_nop_();_nop_();_nop_();//ÉÔÉÔµÈ´ýÒ»ÏÂ
+ 204   1          eeprom_off();               //¹Ø±ÕIAP¹¦ÄÜ
+ 205   1      }
+ 206          /*-------------------------------------------------------
+ 207          eeprom¶Áº¯Êý¡£
+ 208          -------------------------------------------------------*/
+ 209          u8 eeprom_read(u16 addr){
+ 210   1          u8 dat_u8;
+ 211   1          if(data_addr_ex)return 0xff;//Èç¹ûµØÖ·³¬¹ý64KB£¬Ö±½Ó·µ»Ø0xff¡£
+ 212   1          if((addr>=0x0200)&&(addr<APP_ADDR))return 0xff;//Èç¹ûµØÖ·ÔÚBOOTÇø£¬Ö±½Ó·µ»Ø0xff¡£
+ 213   1          if(addr>=APP_ADDR)addr-=APP_JMP_ADDR;//Èç¹ûµØÖ·ÔÚÕý³£µÄÇø¼ä£¬Ôò¼õÈ¥IAPµÄÆ«ÒÆÁ¿µÃµ½ÕæÕýµÄµØÖ·¡£
+ 214   1          IAP_SET_REG_CONTR(ECBM_EEPROM_WAIT_TIME|IAP_EN);  //Ê¹ÄÜIAP
+ 215   1          IAP_CMD_READ;               //ÉèÖÃIAP¶ÁÃüÁî
+ 216   1          IAP_SET_REG_ADDR_HL(addr);  //ÉèÖÃIAPµØÖ·
+ 217   1          IAP_TRIG_ON;                //´¥·¢ÃüÁî
+ 218   1          _nop_();_nop_();_nop_();_nop_();_nop_();_nop_();//ÉÔÉÔµÈ´ýÒ»ÏÂ
+ 219   1          _nop_();_nop_();_nop_();_nop_();_nop_();_nop_();//ÉÔÉÔµÈ´ýÒ»ÏÂ
+ 220   1          _nop_();_nop_();_nop_();_nop_();_nop_();_nop_();//ÉÔÉÔµÈ´ýÒ»ÏÂ
+ 221   1          dat_u8=IAP_GET_REG_DATA;    //¶ÁIAPÊý¾Ý
+ 222   1          eeprom_off();               //¹Ø±ÕIAP¹¦ÄÜ
+ 223   1          return dat_u8;
+ 224   1      }
+ 225          #endif
+ 226          #if (1)//´®¿Ú²¿·ÖÕÛµþ
+ 227          /*-------------------------------------------------------
+ 228          ´®¿Ú³õÊ¼»¯º¯Êý¡£
+ 229          -------------------------------------------------------*/
+ 230          void uart_init(void){
+ 231   1          #if   (UART_485_EN)
+                      #if   (UART_485_PIN==0)
+                          #define PIN2IO (0x01)
+                      #elif (UART_485_PIN==1)
+                          #define PIN2IO (0x02)
+                      #elif (UART_485_PIN==2)
+                          #define PIN2IO (0x04)
+                      #elif (UART_485_PIN==3)
+                          #define PIN2IO (0x08)
+                      #elif (UART_485_PIN==4)
+C51 COMPILER V9.60.7.0   MAIN                                                              05/31/2025 10:50:12 PAGE 5   
+
+                          #define PIN2IO (0x10)
+                      #elif (UART_485_PIN==5)
+                          #define PIN2IO (0x20)
+                      #elif (UART_485_PIN==6)
+                          #define PIN2IO (0x40)
+                      #elif (UART_485_PIN==7)
+                          #define PIN2IO (0x80)
+                      #endif
+                      UART_485_IO=0;                  //485¿ØÖÆÒý½ÅÉèÖÃÎªÊäÈë¡£
+                      #if   (UART_485_PORT==0x80)
+                          P0M0|=PIN2IO; P0M1&=~PIN2IO; 
+                      #elif (UART_485_PORT==0x90)
+                          P1M0|=PIN2IO; P1M1&=~PIN2IO;
+                      #elif (UART_485_PORT==0xA0)
+                          P2M0|=PIN2IO; P2M1&=~PIN2IO;
+                      #elif (UART_485_PORT==0xB0)
+                          P3M0|=PIN2IO; P3M1&=~PIN2IO;
+                      #elif (UART_485_PORT==0xC0)
+                          P4M0|=PIN2IO; P4M1&=~PIN2IO;
+                      #elif (UART_485_PORT==0xC8)
+                          P5M0|=PIN2IO; P5M1&=~PIN2IO;
+                      #elif (UART_485_PORT==0xE8)
+                          P6M0|=PIN2IO; P6M1&=~PIN2IO;
+                      #elif (UART_485_PORT==0xF8)
+                          P7M0|=PIN2IO; P7M1&=~PIN2IO;
+                      #endif
+                  #endif  
+ 268   1          P1M0 &= ~0x03; P1M1 &= ~0x03; 
+ 269   1          UART2_SET_MODE_A_8_BAUD;//ÉèÖÃ´®¿ÚÎª8Î»ÎÞÐ£Ñé£¬1¸öÍ£Ö¹Î»¡£
+ 270   1          UART2_SET_RXD_ENABLE;   //Æô¶¯´®¿Ú½ÓÊÕ¡£
+ 271   1          TIMER2_SET_REG_HL((u16)(65536-(u16)(ECBM_SYSCLK_SETTING/4/ECBM_UART_BAUD_RATE)));//ÉèÖÃ²¨ÌØÂÊ¡£
+ 272   1          TIMER2_SET_MODE_1T;     //Éè¶¨¶¨Ê±Æ÷2Îª1TÄ£Ê½£¬
+ 273   1          TIMER2_SET_MODE_TIMER;  //Éè¶¨¶¨Ê±Æ÷2Îª16Î»×Ô¶¯ÖØ×°·½Ê½£¬Ä¿Ç°ÕâÑùÉèÖÃÒÑ¾­ÄÜÂú×ã³£ÓÃµÄ²¨ÌØÂÊÁË¡£
+ 274   1          TIMER2_IT_DISABLE;      //½ûÖ¹¶¨Ê±Æ÷2ÖÐ¶Ï¡£
+ 275   1          TIMER2_POWER_ON;        //Æô¶¯¶¨Ê±Æ÷2¡£
+ 276   1      }
+ 277          /*-------------------------------------------------------
+ 278          ´®¿Ú·¢ËÍº¯Êý¡£
+ 279          -------------------------------------------------------*/
+ 280          void uart_char(u8 ch){
+ 281   1          #if   (UART_485_EN)
+                      UART_485_IO=1;          //½«485¿ØÖÆÒý½ÅÉèÖÃÎªÊä³ö¡£
+                  #endif
+ 284   1          UART2_SET_REG_S2BUF(ch);     //·¢ËÍÊý¾Ý¡£
+ 285   1          while(!UART2_GET_TI_FLAG);  //µÈ´ý·¢ËÍÍê³É¡£
+ 286   1          UART2_CLR_TI_FLAG;          //Çå³ý·¢ËÍÍê³É±êÖ¾¡£
+ 287   1          #if   (UART_485_EN)
+                      UART_485_IO=0;          //½«485¿ØÖÆÒý½ÅÉèÖÃÎªÊäÈë¡£
+                  #endif
+ 290   1      }
+ 291          /*-------------------------------------------------------
+ 292          ´®¿Ú×Ö·û´®·¢ËÍº¯Êý¡£
+ 293          -------------------------------------------------------*/
+ 294          void uart_string(u8 * str){
+ 295   1          while(*str){//Ñ­»·Ö±ÖÁ×Ö·û´®½áÊø£¬
+ 296   2              uart_char(*str++);//·¢ËÍÒ»¸ö×Ö·û£¬²¢Ôö¼ÓÖ¸ÕëÖ¸ÏòÏÂÒ»¸ö×Ö·û¡£
+ 297   2          }
+ 298   1      }
+ 299          #endif
+ 300          u8 app_data_check(void){
+ 301   1          u16 data_c,sector_c;
+ 302   1          u8 res;
+C51 COMPILER V9.60.7.0   MAIN                                                              05/31/2025 10:50:12 PAGE 6   
+
+ 303   1          res=0;
+ 304   1          for(sector_c=(APP_JMP_ADDR/512);sector_c<EEPROM_SIZE_MAX;sector_c++){//¸ÃÑ­»·µÄ´ÎÊý¾ÍÊÇÉÏÃæÌîµÄÈ«Æ¬¿Õ¼
+             -äµÄ´óÐ¡¡£
+ 305   2              for(data_c=0;data_c<512;data_c++){
+ 306   3                  if(*(unsigned char code *)(sector_c*512+data_c)!=0xFF){
+ 307   4                      res++;
+ 308   4                      break;
+ 309   4                  }
+ 310   3              }
+ 311   2          }
+ 312   1          return res;
+ 313   1      }
+ 314          /*-------------------------------------------------------
+ 315          Ö÷º¯Êý¡£
+ 316          -------------------------------------------------------*/
+ 317          void main(void){        //mainº¯Êý£¬±ØÐëµÄ¡£
+ 318   1          EX_SFR_ENABLE;      //´ò¿ª¶îÍâ¼Ä´æÆ÷¡£
+ 319   1          io_init();          //³õÊ¼»¯IO¡£
+ 320   1          eeprom_init();      //³õÊ¼»¯EEPROM¡£
+ 321   1          #if (MUX_FUNCTION_UART)
+                      value_init();   //³õÊ¼»¯±äÁ¿¡£
+                      uart_init();    //ÄÜÔËÐÐµ½Õâ£¬ËµÃ÷ÒªÅÜbootloader¡£³õÊ¼»¯´®¿Ú¡£
+                  #endif
+ 325   1          if(*(unsigned char code *)(APP_JMP_ADDR)==0x02){//Èç¹ûÔÚ¸ÃÎ»ÖÃÉÏÓÐÌø×ªÓï¾ä£¬ËµÃ÷ÓÐAPP¡£
+ 326   2              app_flag=1;     //ÖÃ±êÖ¾Î»Îª1¡£µ±È»Ò²¿ÉÒÔÉèÁ¢¸ü¼ÓÏêÏ¸µÄÌõ¼þÀ´´ï³ÉAPPÊÇ·ñ´æÔÚµÄÅÐ¶Ï¡£
+ 327   2          }else{              //Ìõ¼þ²»Âú×ã£¬
+ 328   2              app_flag=0;     //ÖÃ±êÖ¾Î»Îª0¡£
+ 329   2          }
+ 330   1          if((BOOT_PIN==BOOT_RUN_APP)&&(app_flag)){//Èç¹ûBOOT½ÅÎªµÍµçÆ½ÇÒÓÐAPP£¬
+ 331   2              io_reset();     //»¹Ô­IOµÄÉèÖÃ¡£
+ 332   2              jmp_app();      //Ìø×ªµ½APP¡£
+ 333   2          }
+ 334   1          EX_SFR_ENABLE;      //´ò¿ª¶îÍâ¼Ä´æÆ÷¡£
+ 335   1          #if (MUX_FUNCTION_UART==0)
+ 336   1              value_init();   //³õÊ¼»¯±äÁ¿¡£
+ 337   1              uart_init();    //ÄÜÔËÐÐµ½Õâ£¬ËµÃ÷ÒªÅÜbootloader¡£³õÊ¼»¯´®¿Ú¡£
+ 338   1          #endif
+ 339   1          app_lock=app_data_check();
+ 340   1          EA_DISABLE;
+ 341   1          while(1){           //±¾BootLoader²»ÐèÒªÖÐ¶Ï£¬È«²¿ÔÚÖ÷Ñ­»·ÀïÓÃ²éÑ¯·¨¡£
+ 342   2              if(UART2_GET_RI_FLAG){//´®¿Ú1½ÓÊÕÖÐ¶Ï¡£
+ 343   3                  UART2_CLR_RI_FLAG;//Çåµô´®¿Ú1½ÓÊÕ±êÖ¾¡£
+ 344   3                  switch(flash_state){
+ 345   4                      //Ç°Èý¸ö×´Ì¬ÓÃÓÚÅÐ¶ÏÖ¡Í·µÄAIC¡£
+ 346   4                      case 0:{if(UART2_GET_REG_S2BUF=='A'){flash_state=1;}}break;
+ 347   4                      case 1:{if(UART2_GET_REG_S2BUF=='I'){flash_state=2;}else{flash_state=0;}}break;
+ 348   4                      case 2:{if(UART2_GET_REG_S2BUF=='C'){flash_state=3;}else{flash_state=0;}}break;
+ 349   4                      case 3:{
+ 350   5                          flash_cmd=UART2_GET_REG_S2BUF;//Ö¡Í·¹ýºóÊÇÖ¸Áî£¬½«Ö¸Áî´æÆðÀ´¡£
+ 351   5                          switch(flash_cmd){//Èç¹ûÖ¸ÁîÊÇÃ»ÓÐ²ÎÊýµÄ£¬ÄÇÃ´¿ÉÒÔÁ¢¼´Ö´ÐÐ¡£
+ 352   6                              case 0xEC:{//±ê¼ÇÖ¸Áî¡£
+ 353   7                                  flash_state=0;//×´Ì¬»úÖØÖÃ¡£
+ 354   7                                  uart_string("AIS");//·¢ËÍ»Ø¸´Ö¡Í·¡£
+ 355   7                                  POWER_RESET;//µ¥Æ¬»úÖØÆô¡£
+ 356   7                              }break;
+ 357   6                              case 0xF0:{//²éÑ¯ÐÍºÅÖ¸Áî¡£
+ 358   7                                  flash_state=0;//×´Ì¬»úÖØÖÃ¡£
+ 359   7                                  uart_string("AIS");//·¢ËÍ»Ø¸´Ö¡Í·¡£
+ 360   7                                  uart_char(0xEF);//³§ÉÌID¡£
+ 361   7                                  uart_char(0x40);//ÀàÐÍID¡£
+ 362   7                                  uart_char(0x11);//ÈÝÁ¿ID   ¡£         
+ 363   7                              }break;
+C51 COMPILER V9.60.7.0   MAIN                                                              05/31/2025 10:50:12 PAGE 7   
+
+ 364   6                              case 0xF1:{//²éÑ¯×´Ì¬Ö¸Áî¡£
+ 365   7                                  flash_state=0;//×´Ì¬»úÖØÖÃ¡£
+ 366   7                                  uart_string("AIS");//·¢ËÍ»Ø¸´Ö¡Í·¡£
+ 367   7                                  uart_char(0x00);//×´Ì¬1¡£
+ 368   7                                  uart_char(0x00);//×´Ì¬2¡£
+ 369   7                                  uart_char(0x00);//×´Ì¬3¡£
+ 370   7                              }break;
+ 371   6                              case 0xF4:{//È«Æ¬²Á³ýÖ¸Áî¡£
+ 372   7                                  flash_state=0;//×´Ì¬»úÖØÖÃ¡£
+ 373   7                                  for(data_n=0;data_n<EEPROM_SIZE_MAX;data_n++){//¸ÃÑ­»·µÄ´ÎÊý¾ÍÊÇÉÏÃæÌîµÄÈ«Æ¬¿Õ
+             -¼äµÄ´óÐ¡¡£
+ 374   8                                      eeprom_erase((u16)(data_n*512));//È«Æ¬²Á³ý¡£
+ 375   8                                  }
+ 376   7                                  app_lock=app_data_check();
+ 377   7                                  uart_string("AIS");//·¢ËÍ»Ø¸´Ö¡Í·¡£
+ 378   7                              }break;
+ 379   6                              case 0xF2:case 0xF3:case 0xF5:case 0xF6:case 0xF7:flash_state=4;break;//Èç¹ûÊÇ´ø²Î
+             -ÊýµÄÖ¸Áî£¬¾Íµ½½ÓÊÕµØÖ·×´Ì¬¡£
+ 380   6                          }
+ 381   5                      }break;
+ 382   4                      case 4:case 5:{//STC8µÄ×î´óÈÝÁ¿¾ÍÊÇ64K£¬ËùÒÔ¸ßÎ»µØÖ·Ïàµ±ÓÚÃ»ÓÃ¡£
+ 383   5                          data_addr_ex<<=8;//ÕâÀï×é×°ËüÊÇÎªÁËÔÚÉÏÎ»»ú²Ù×÷µÄÊ±ºò£¬¼ÙÈç²»Ð¡ÐÄÊäÈëÁË´íÎóµÄµØÖ·£¬²»»
+             -áÔì³ÉÊý¾Ý±»ÐÞ¸Ä»ò¶ªÊ§¡£
+ 384   5                          data_addr_ex+=(u16)(UART2_GET_REG_S2BUF);
+ 385   5                          flash_state++;
+ 386   5                      }break;
+ 387   4                      case 6:case 7:{
+ 388   5                          data_addr<<=8;//×é×°µÍÎ»µØÖ·
+ 389   5                          data_addr+=(u16)(UART2_GET_REG_S2BUF);
+ 390   5                          flash_state++;
+ 391   5                          if(flash_state==8){//µ±µØÖ·×é×°Íê±ÏÖ®ºó£¬ÅÐ¶Ïµ±Ç°Ö¸ÁîÊÇ²»ÊÇÂú×ãÁË¡°²ÎÊýÖ»ÓÐµØÖ·¡±µÄÇé¿
+             -ö¡£
+ 392   6                              //ÒÔÏÂ3¸öÖ¸Áî¾ÍÊÇ²ÎÊýÖ»ÓÐµØÖ·µÄÇé¿ö¡£
+ 393   6                              if(flash_cmd==0xF5){//4K²Á³ýÖ¸Áî¡£
+ 394   7                                  flash_state=0;  //×´Ì¬»úÖØÖÃ¡£
+ 395   7                                  for(data_n=0;data_n<8;data_n++){//4K=4096£¬¶ø4096/512=8¡£
+ 396   8                                      eeprom_erase((u16)(data_addr+(u16)(data_n*512)));
+ 397   8                                  }
+ 398   7                                  app_lock=app_data_check();
+ 399   7                                  uart_string("AIS");//·¢ËÍ»Ø¸´Ö¡Í·¡£
+ 400   7                              }
+ 401   6                              if(flash_cmd==0xF6){//32K²Á³ýÖ¸Áî¡£
+ 402   7                                  flash_state=0;  //×´Ì¬»úÖØÖÃ¡£
+ 403   7                                  for(data_n=0;data_n<64;data_n++){//32K=32768£¬¶ø32768/512=64¡£
+ 404   8                                      eeprom_erase((u16)(data_addr+(u16)(data_n*512)));
+ 405   8                                  }
+ 406   7                                  app_lock=app_data_check();
+ 407   7                                  uart_string("AIS");//·¢ËÍ»Ø¸´Ö¡Í·¡£
+ 408   7                              }
+ 409   6                          }
+ 410   5                      }break;
+ 411   4                      case 8:case 9:case 10:case 11:{
+ 412   5                          data_len<<=8;//×é×°Êý¾Ý³¤¶È¡£
+ 413   5                          data_len+=(u16)(UART2_GET_REG_S2BUF);
+ 414   5                          flash_state++;
+ 415   5                          //ÕâÀï³¤¶ÈµÄ×é×°ºá¿ç4¸ö×´Ì¬£¬Ò²¾ÍÊÇ4¸ö×Ö½Ú¡£µ«ÊÇSTC8µÄEEPROM×î´óÈÝÁ¿ÊÇ64K£¬ËùÒÔ³¤¶È×î´
+             -óÖ»ÄÜÊÇ64K¡£
+ 416   5                          //ËùÒÔdata_len¶¨ÒåÎªu16£¬´óÓÚ65536µÄ²¿·Ö»áÒç³ö³åµô¡£Èç¹ûÏëÒªÍêÕûµÄÊý¾Ý³¤¶È£¬¿ÉÒÔ°Ñdata
+             -_len¶¨ÒåÎªu32¡£
+ 417   5                          if(flash_state==12){//×é×°ºÃÖ®ºó
+ 418   6                              if(flash_cmd==0xF2){//¶ÁÈ¡Êý¾ÝÖ¸Áî¡£
+ 419   7                                  flash_state=0;  //×´Ì¬»úÖØÖÃ¡£
+C51 COMPILER V9.60.7.0   MAIN                                                              05/31/2025 10:50:12 PAGE 8   
+
+ 420   7                                  if(app_lock){//Èç¹ûAPP´æÔÚÇÒ±»Ëø£¬
+ 421   8                                      uart_string("AIS");//·¢ËÍ»Ø¸´Ö¡Í·¡£
+ 422   8                                      for(data_n=0;data_n<data_len;data_n++){//ÔÚAPPËø¶¨µÄÇé¿öÏÂÏÔÊ¾¡°APPLOCK¡±¡
+             -£
+ 423   9                                          switch((data_addr+data_n)&0x07){
+ 424  10                                              case 0:uart_char('A');break;
+ 425  10                                              case 1:uart_char('P');break;
+ 426  10                                              case 2:uart_char('P');break;
+ 427  10                                              case 3:uart_char('L');break;
+ 428  10                                              case 4:uart_char('O');break;
+ 429  10                                              case 5:uart_char('C');break;
+ 430  10                                              case 6:uart_char('K');break;
+ 431  10                                              case 7:uart_char(app_lock);break;
+ 432  10                                          }
+ 433   9                                      }
+ 434   8                                  }else{//Èç¹ûÃ»ÓÐËø¶¨£¬ÄÇÃ´¾ÍÊÇÕý³£ÏÔÊ¾eepromÀïÃæµÄÄÚÈÝ¡£
+ 435   8                                      uart_string("AIS");//·¢ËÍ»Ø¸´Ö¡Í·¡£
+ 436   8                                      for(data_n=0;data_n<data_len;data_n++){
+ 437   9                                          uart_char(eeprom_read(data_addr+data_n));//½«eepromµÄÄÚÈÝÍ¨¹ý´®¿Ú·¢ËÍ³
+             -öÈ¥¡£
+ 438   9                                      }
+ 439   8                                  }
+ 440   7                              }
+ 441   6                              data_count=0;//ÖØÖÃÊý¾Ý¼ÆÊýÆ÷¡£
+ 442   6                              //Èç¹ûÉÏÃæµÄifÅÐ¶ÏÃ»ÓÐ´¥·¢£¬ËµÃ÷ÊÇ0xF3Ö¸Áî£¬Ò²¾ÍÊÇ±à³ÌÊý¾ÝÖ¸Áî£¬ÄÇÃ´½ÓÏÂÀ´¾ÍÒª¿ªÊ¼
+             -½ÓÊÕÊý¾ÝÁË¡£
+ 443   6                          }
+ 444   5                      }break;
+ 445   4                      case 12:{//±à³ÌÊý¾ÝÖ¸Áî¡£
+ 446   5                          flash_buf[data_count]=UART2_GET_REG_S2BUF;//½ÓÊÕÊý¾Ýµ½»º´æ¡£
+ 447   5                          data_count++;//Êý¾Ý¼ÆÊýÆ÷¼ÓÒ»¡£
+ 448   5                          if(data_count==data_len){//Èç¹û½ÓÊÕµÄÊý¾ÝÊýÁ¿´ïµ½Ö¸¶¨Öµ£¬
+ 449   6                              flash_state=0;//ÖØÖÃ×´Ì¬»ú£¬Í¨³£ÊÇÒª×¼±¸ÏÂÒ»¸öÊý¾Ý°ü£¬Ö±ÖÁ½ÓÊÕÍê±Ï¡£
+ 450   6                              if(app_lock){//Èç¹ûAPP´æÔÚÇÒ±»Ëø£¬
+ 451   7                                  //ÕâÀï¿ÉÒÔÓÃÆäËû·½Ê½À´·´À¡£¬µ«Ä¬ÈÏÊÇ²»×ö´¦Àí¡£
+ 452   7                              }else{//Èç¹û²»´æÔÚ»òÕßÃ»ÓÐ±»Ëø£¬Ôò½øÐÐ±à³Ì¡£
+ 453   7                                  for(data_n=0;data_n<data_len;data_n++){
+ 454   8                                      eeprom_write(data_addr+data_n,flash_buf[data_n]);//½«»º´æµÄÊý¾ÝÐ´Èëµ½eepro
+             -m¡£
+ 455   8                                  }
+ 456   7                              }
+ 457   6                              uart_string("AIS");//Íê³ÉÐ´ÈëºóÔÙ»Ø¸´£¬Í¨ÖªÉÏÎ»»ú·¢ËÍÏÂÒ»¸öÊý¾Ý°ü¡£
+ 458   6                          }
+ 459   5                      }break;
+ 460   4                  }
+ 461   3              }
+ 462   2          }
+ 463   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =   1170    ----
+   CONSTANT SIZE    =      4    ----
+   XDATA SIZE       =    260       3
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     14    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =      1    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

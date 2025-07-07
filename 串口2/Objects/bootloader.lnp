@@ -1,0 +1,6 @@
+".\Objects\main.obj",
+".\Objects\NVIC_JMP.obj",
+".\Objects\STARTUP.obj" 
+TO ".\Objects\bootloader" 
+PRINT(".\Listings\bootloader.m51") DISABLEWARNING (16) 
+CODE( 0X0200-0XFFFF )
